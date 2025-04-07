@@ -36,7 +36,7 @@ export default function Home() {
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
             >
-              <FaGithub className="text-5xl text-gray-800 mt-4 hover:scale-110 transition-transform" />
+              <FaGithub className="text-5xl text-gray-800 dark:text-white mt-4 hover:scale-110 transition-transform" />
             </a>
           </div>
         </div>
