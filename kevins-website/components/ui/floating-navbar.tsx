@@ -6,7 +6,7 @@ import {
 } from "motion/react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
+import { IconHome, IconMessage, IconUser} from "@tabler/icons-react";
 
 
 
@@ -64,7 +64,7 @@ export const FloatingNav = () => {
             key={`link-${idx}`}
             href={navItem.link}
             className={cn(
-              "relative !text-white dark:!text-white items-center flex space-x-1 hover:text-gray-200 dark:hover:text-gray-200 font-bold"
+              "relative !text-white dark:!text-white items-center flex space-x-1 font-bold hover:scale-110 transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-white dark:hover:bg-white rounded-lg px-2 py-1 hover:!text-[#e30b5d] dark:hover:!text-[#e30b5d]"
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
