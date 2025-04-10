@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+// import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import {
@@ -11,6 +12,7 @@ import {
   IconSun,
 } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 
 const defaultItems = [
   {
@@ -40,6 +42,7 @@ export const FloatingNav = () => {
   const [visible] = React.useState(true);
   const [isMounted, setIsMounted] = React.useState(false);
   const { theme, setTheme } = useTheme();
+  const pathname = usePathname(); 
 
   useEffect(() => {
     setIsMounted(true);
@@ -63,22 +66,43 @@ export const FloatingNav = () => {
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit fixed top-3 inset-x-0 mx-auto border border-transparent rounded-xl dark:bg-black bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-8 py-3 items-center justify-center space-x-8",
-          "bg-[#e30b5d] dark:bg-[#e30b5d] shadow-lg"
+          "flex max-w-fit fixed top-3 inset-x-0 mx-auto border border-transparent rounded-xl dark:bg-black bg-white px-8 py-3 items-center justify-center space-x-8",
+          "bg-[#e30b5d] dark:bg-[#e30b5d] shadow-xl shadow-black/30 dark:shadow-[#e30b5d]/30"
         )}
       >
-        {navItems.map((navItem, idx) => (
-          <Link
-            key={`link-${idx}`}
-            href={navItem.link}
-            className={cn(
-              "relative !text-white dark:!text-white items-center flex space-x-1 font-bold hover:scale-110 transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-white dark:hover:bg-white rounded-lg px-2 py-1 hover:!text-[#e30b5d] dark:hover:!text-[#e30b5d]"
-            )}
-          >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
-          </Link>
-        ))}
+        {navItems.map((navItem, idx) => {
+          const isActive =
+            pathname === navItem.link ||
+            (pathname.startsWith(navItem.link) && navItem.link !== "/");
+
+          return (
+            <Link
+              key={`link-${idx}`}
+              href={navItem.link}
+              className={cn(
+                "relative items-center flex space-x-1 font-bold transition-all duration-200 ease-in-out hover:cursor-pointer rounded-lg px-2 py-1",
+                "!text-white dark:!text-white",
+                "hover:scale-110 hover:bg-white dark:hover:bg-white hover:!text-[#e30b5d] dark:hover:!text-[#e30b5d]",
+                isActive &&
+                  "bg-white dark:bg-white !text-[#e30b5d] dark:!text-[#e30b5d]" // Active link styling
+              )}
+            >
+              <span className="block sm:hidden">{navItem.icon}</span>
+              <span className="hidden sm:block text-sm">
+                {navItem.name}
+                {isActive && (
+                  <motion.div
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white dark:bg-white rounded-full"
+                    layoutId="navbar-indicator"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </span>
+            </Link>
+          );
+        })}
 
         {isMounted && (
           <button

@@ -42,12 +42,13 @@ function TypedText({
 }
 
 export default function Home() {
+    const [scrollY] = useState(0);
   return (
     <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <FloatingNav />
       <div className="flex flex-col md:flex-row justify-between items-center mt-16">
         <div className="md:w-1/2 flex flex-col gap-6">
-          <h1 className="text-9xl md:text-9xl font-bold text-left">
+          <h1 className="text-xl md:text-9xl font-bold text-left">
             Kevin
             <br />
             Cruz

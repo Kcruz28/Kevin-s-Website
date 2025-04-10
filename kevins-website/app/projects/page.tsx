@@ -1,5 +1,6 @@
+
 import { FloatingNav } from "@/components/ui/floating-navbar";
-import "../app/globals.css";
+
 export default function Projects() {
     return (
         <div>
