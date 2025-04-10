@@ -42,14 +42,14 @@ export const FloatingNav = () => {
   const [visible] = React.useState(true);
   const [isMounted, setIsMounted] = React.useState(false);
   const { theme, setTheme } = useTheme();
-  const pathname = usePathname(); 
+  const pathname = usePathname();
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
   if (!isMounted) return null;
-
+  const isDarkMode = theme === "dark";
   return (
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
@@ -104,20 +104,18 @@ export const FloatingNav = () => {
           );
         })}
 
-        {isMounted && (
-          <button
-            onClick={() => {
-              setTheme(theme === "dark" ? "light" : "dark");
-            }}
-            className="flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-black text-gray-800 dark:text-white hover:scale-110 transition-transform"
-          >
-            {theme === "dark" ? (
-              <IconSun className="h-5 w-5" />
-            ) : (
-              <IconMoon className="h-5 w-5" />
-            )}
-          </button>
-        )}
+        <button
+          onClick={() => {
+            setTheme(isDarkMode ? "light" : "dark");
+          }}
+          className="flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-black text-gray-800 dark:text-white hover:scale-110 transition-transform"
+        >
+          {isDarkMode ? (
+            <IconSun className="h-5 w-5" />
+          ) : (
+            <IconMoon className="h-5 w-5" />
+          )}
+        </button>
       </motion.div>
     </AnimatePresence>
   );

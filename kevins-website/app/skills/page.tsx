@@ -90,15 +90,16 @@ export default function Skills() {
         </p>
       </div>
 
+      {/* // Category buttons */}
       <div className="flex flex-wrap gap-2 md:gap-4 justify-start mt-4">
         {categories.map((category) => (
           <button
             key={category.id}
             onClick={() => setActiveCategory(category.id)}
-            className={`flex items-center gap-2 px-4 py-2 rounded transition-all ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all ${
               activeCategory === category.id
                 ? "bg-[#e30b5d] text-white font-bold "
-                : "bg-black text-white font-bold bold hover:bg-gray-100 dark:bg-white dark:text-black dark:hover:bg-gray-800"
+                : "bg-black text-white font-bold dark:bg-white dark:text-black hover:cursor-pointer hover:scale-105"
             }`}
           >
             {category.icon}
@@ -108,7 +109,7 @@ export default function Skills() {
       </div>
 
       <div className="mt-12">
-        <h1 className="text-2xl font-bold text-left text-black dark:text-white">
+        <h1 className="text-2xl font-bold text-left text-black dark:text-white mb-4">
           {activeSkillCategory.title}
         </h1>
 
