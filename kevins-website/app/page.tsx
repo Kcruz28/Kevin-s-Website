@@ -1,103 +1,176 @@
-import Image from "next/image";
+"use client";
+import { FloatingNav } from "@/components/ui/floating-navbar";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+function TypedText({
+  text,
+  delay = 50,
+  startDelay = 0,
+}: {
+  text: string;
+  delay?: number;
+  startDelay?: number;
+}) {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [startTyping, setStartTyping] = useState(false);
+
+  useEffect(() => {
+    const startTimer = setTimeout(() => {
+      setStartTyping(true);
+    }, startDelay);
+
+    return () => clearTimeout(startTimer);
+  }, [startDelay]);
+
+  useEffect(() => {
+    if (!startTyping) return;
+
+    if (currentIndex < text.length) {
+      const timer = setTimeout(() => {
+        setDisplayedText((prev) => prev + text[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      }, delay);
+
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, delay, text, startTyping]);
+
+  return <span>{displayedText}</span>;
+}
 
 export default function Home() {
+  const [scrollY] = useState(0);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <FloatingNav />
+      <div className="flex flex-col md:flex-row justify-between items-center mt-16">
+        <div className="md:w-1/2 flex flex-col gap-6">
+          <h1 className="text-xl md:text-9xl font-bold text-left">
+            Kevin
+            <br />
+            Cruz
+            <br />
+            Lopez
+          </h1>
+          <p className="text-xl md:text-2xl text-left">
+            I am a software engineer with a passion for building web
+            applications. I have experience in full-stack development, and I
+            enjoy working with modern technologies to create efficient and
+            scalable solutions.
+          </p>
+          <div className="flex gap-4">
+            <a
+              href="https://www.linkedin.com/in/kevin-cruz-lopez/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+            >
+              <FaLinkedin className="text-5xl text-[#0077B5] mt-4 hover:scale-110 transition-transform" />
+            </a>
+            <a
+              href="https://github.com/Kcruz28"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+            >
+              <FaGithub className="text-5xl text-gray-800 dark:text-white mt-4 hover:scale-110 transition-transform" />
+            </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Right column - Image */}
+        <div className="md:w-1/3 mt-8 md:mt-0 ">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex justify-center md:justify-end"
+            style={{ transform: `translateY(${scrollY * -0.05}px)` }}
+          >
+            <div className="relative w-full max-w-md">
+              <div className="absolute -inset-4 rounded-xl bg-gradient-to-tr from-rose-500 to-purple-500 opacity-20 blur-xl"></div>
+              <div className="relative bg-gray-900 rounded-xl overflow-hidden shadow-xl border border-gray-800">
+                {/* Terminal header */}
+                <div className="flex items-center p-3 bg-gray-800 border-b border-gray-700">
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  </div>
+                  <div className="mx-auto text-gray-400 text-sm font-mono">
+                    kevin@portfolio ~{" "}
+                  </div>
+                </div>
+
+                {/* Terminal content */}
+                <div className="p-4 font-mono text-sm text-gray-300">
+                  <div className="flex">
+                    <span className="text-green-400 mr-2">$</span>
+                    <TypedText text="npm create portfolio" delay={40} />
+                  </div>
+
+                  <div className="mt-2 text-gray-400">
+                    <div>Creating a new portfolio...</div>
+                    <div className="mt-1">✓ Frontend skills installed</div>
+                    <div>✓ Backend technologies configured</div>
+                    <div>✓ Project experience loaded</div>
+                    <div className="mt-2 flex items-center">
+                      <span className="inline-block w-3 h-3 bg-rose-500 rounded-full mr-2 animate-pulse"></span>
+                      <span>Ready to collaborate</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex">
+                    <span className="text-green-400 mr-2">$</span>
+                    <TypedText
+                      text="skills --list"
+                      delay={40}
+                      startDelay={1500}
+                    />
+                  </div>
+
+                  <div className="mt-2 grid grid-cols-2 gap-1 text-xs">
+                    <div>
+                      <span className="text-yellow-400">→</span> React.js
+                    </div>
+                    <div>
+                      <span className="text-yellow-400">→</span> Node.js
+                    </div>
+                    <div>
+                      <span className="text-yellow-400">→</span> TypeScript
+                    </div>
+                    <div>
+                      <span className="text-yellow-400">→</span> Next.js
+                    </div>
+                    <div>
+                      <span className="text-yellow-400">→</span> MongoDB
+                    </div>
+                    <div>
+                      <span className="text-yellow-400">→</span> AWS
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex">
+                    <span className="text-green-400 mr-2">$</span>
+                    <span className="relative">
+                      <span>_</span>
+                      <span className="absolute top-0 left-0 h-full w-[1ch] bg-gray-300 animate-cursor"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-lg border-4 border-white dark:border-gray-800">
+                <span className="text-3xl font-bold text-rose-500">3+</span>
+                <span className="text-xs absolute bottom-5">years exp</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 }
