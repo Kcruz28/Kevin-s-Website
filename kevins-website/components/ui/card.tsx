@@ -85,19 +85,21 @@ export const CardSkeletonContainer = ({
 export const FlatCard = ({
   name,
   description,
-  // children,
+  icon,
 }: {
   name: string;
   description: string;
-  // children: React.ReactNode;
+  icon: React.ReactNode;
 }) => {
   return (
     <Card className="w-full h-full ">
-      <CardTitle className="text-lg font-bold">{name}</CardTitle>
-      <CardDescription className="text-sm">
-        {description}
-      </CardDescription>
-      {/* {children} */}
+      <div className="flex items-start gap-4">
+        <div className="flex-shrink-0 mt-3">{icon}</div>
+        <div>
+          <CardTitle className="text-lg font-bold">{name}</CardTitle>
+          <CardDescription className="text-sm">{description}</CardDescription>
+        </div>
+      </div>
     </Card>
   );
 };

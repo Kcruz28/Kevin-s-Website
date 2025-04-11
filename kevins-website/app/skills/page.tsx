@@ -119,6 +119,7 @@ export default function Skills() {
               key={skill.name}
               name={skill.name}
               description={skill.description}
+              icon={skill.icon}
             />
           ))}
         </div>
