@@ -67,7 +67,8 @@ export const FloatingNav = () => {
         }}
         className={cn(
           "flex max-w-fit fixed top-3 inset-x-0 mx-auto border border-transparent rounded-xl dark:bg-black bg-white px-8 py-3 items-center justify-center space-x-8",
-          "bg-[#e30b5d] dark:bg-[#e30b5d] shadow-xl shadow-black/30 dark:shadow-[#e30b5d]/30"
+          "bg-[#e30b5d] dark:bg-[#e30b5d] shadow-xl shadow-black/30 dark:shadow-[#e30b5d]/30",
+          "z-50"
         )}
       >
         {navItems.map((navItem, idx) => {

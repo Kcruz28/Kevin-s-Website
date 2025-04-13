@@ -2,6 +2,31 @@
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { ThreeDCard } from "@/components/ui/3d-card";
 
+const projectInfo = [
+  {
+    projects: "SHPE Tech Team AI Loteria",
+    description:
+      "A fun and interactive game of Loteria, powered by AI. Play against the computer or challenge your friends",
+    githubLink: "https://github.com/SHPE-Tech-Team/AI_Loteria_24-25",
+  },
+  {
+    projects: "Ticket Masterer",
+    description:
+      "Academic project that we compare and share the best ticket prices for events",
+    githubLink: "https://github.com/ajay-del-bot/CS411_CRUDApp",
+  },
+  {
+    projects: "NetWhiz Project",
+    description: "A website where it has lessons about Computer Network",
+    githubLink: "https://github.com/Networking-Platform/NetWhiz",
+  },
+  {
+    projects: "Tic Tac Toe",
+    description: "A simple tic tac toe game that is played in the terminal",
+    githubLink: "https://github.com/Kcruz28/tic-tac-toe",
+  },
+];
+
 export default function Projects() {
     return (
       <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-background">
@@ -19,12 +44,14 @@ export default function Projects() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-2">
-          <ThreeDCard title="Project 1" description="sheeehs" />
-          <ThreeDCard title="Project 1" description="sheeehs" />
-          <ThreeDCard title="Project 1" description="sheeehs" />
-          <ThreeDCard title="Project 1" description="sheeehs" />
-          <ThreeDCard title="Project 1" description="sheeehs" />
-          <ThreeDCard title="Project 1" description="sheeehs" />
+          {projectInfo.map((project, index) => (
+            <ThreeDCard
+              key={index}
+              projectName={project.projects}
+              description={project.description}
+              githubLink={project.githubLink}
+            />
+          ))}
         </div>
       </div>
     );
