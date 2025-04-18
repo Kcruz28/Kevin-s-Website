@@ -26,7 +26,7 @@ export default function BackgroundParticles() {
       options={{
         fullScreen: { enable: false },
         particles: {
-          number: { value: 85 },
+          number: { value: 80 },
           color: { value: particleColor },
           shape: { type: "triangle" },
           opacity: { value: 0.5 },
@@ -53,7 +53,7 @@ export default function BackgroundParticles() {
           modes: {
             repulse: { distance: 100, duration: 0.4 },
             push: { quantity: 4 },
-            attract: { distance: 100, duration: 0.4, factor: 5 },
+            attract: { distance: 50, duration: 0.4, factor: 5 },
           },
         },
         detectRetina: true,
