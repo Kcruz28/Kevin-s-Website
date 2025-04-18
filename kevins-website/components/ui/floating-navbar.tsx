@@ -67,7 +67,7 @@ export const FloatingNav = () => {
         }}
         className={cn(
           "flex max-w-fit fixed top-3 inset-x-0 mx-auto border border-transparent rounded-xl dark:bg-black bg-white px-8 py-3 items-center justify-center space-x-8",
-          "bg-[#e30b5d] dark:bg-[#e30b5d] shadow-xl shadow-black/30 dark:shadow-[#e30b5d]/30",
+          "bg-[#e30b5d] dark:bg-[#e30b5d] shadow-xl shadow-[#e30b5d]/30 dark:shadow-[#e30b5d]/30",
           "z-50"
         )}
       >
@@ -85,21 +85,12 @@ export const FloatingNav = () => {
                 "!text-white dark:!text-white",
                 "hover:scale-110 hover:bg-white dark:hover:bg-white hover:!text-[#e30b5d] dark:hover:!text-[#e30b5d]",
                 isActive &&
-                  "bg-white dark:bg-white !text-[#e30b5d] dark:!text-[#e30b5d]" // Active link styling
+                  "bg-white dark:bg-white !text-[#e30b5d] dark:!text-[#e30b5d]"
               )}
             >
               <span className="block sm:hidden">{navItem.icon}</span>
               <span className="hidden sm:block text-sm">
                 {navItem.name}
-                {isActive && (
-                  <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white dark:bg-white rounded-full"
-                    layoutId="navbar-indicator"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
               </span>
             </Link>
           );
