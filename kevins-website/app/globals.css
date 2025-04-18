@@ -90,6 +90,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --nav-bar-background: #e30b5d;
 }
 
 .dark {
@@ -132,5 +133,22 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+
+@layer utilities {
+  .background-pattern-light {
+    background-image: radial-gradient(#87878764 1px, #ffffff 1px);
+    background-size: 20px 20px;
+  }
+
+  .dark .background-pattern-light {
+    background-image: none;
+  }
+
+  .dark .background-pattern-dark {
+    background-image: radial-gradient(#ffffff33 1px, #000000 1px);
+    background-size: 20px 20px;
   }
 }

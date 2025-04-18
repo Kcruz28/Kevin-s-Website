@@ -75,7 +75,7 @@ export default function Skills() {
 
   const activeSkillCategory = skillsByCategory[activeCategory];
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-background">
+    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <FloatingNav />
       <div className="flex flex-col gap-6 mt-16">
         <h1 className="text-xl md:text-9xl font-bold text-left text-black dark:text-white">

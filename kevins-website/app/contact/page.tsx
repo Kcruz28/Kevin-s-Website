@@ -28,16 +28,15 @@ export default function Contact() {
     },
   ];
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-background">
+    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       {/* <div className="absolute inset-0 +z-10">
         <AnimatedBackground animationName="starryNight" blendMode="screen" />
       </div>  */}
+    
       <FloatingNav />
       <div className="flex flex-col gap-6 mt-16">
         <h1 className="text-xl md:text-9xl font-bold text-left text-black dark:text-white">
-          Get
-          <br />
-          In
+          Get In
           <br />
           Touch
         </h1>

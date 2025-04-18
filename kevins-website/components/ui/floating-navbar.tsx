@@ -109,7 +109,7 @@ export const FloatingNav = () => {
           onClick={() => {
             setTheme(isDarkMode ? "light" : "dark");
           }}
-          className="flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-black text-gray-800 dark:text-white hover:scale-110 transition-transform"
+          className="flex items-center justify-center w-8 h-8 rounded-lg bg-black dark:bg-white text-white dark:text-black hover:scale-110 transition-transform"
         >
           {isDarkMode ? (
             <IconSun className="h-5 w-5" />
