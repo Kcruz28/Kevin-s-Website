@@ -13,27 +13,29 @@ import {
 } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
+import { GrProjects } from "react-icons/gr";
+import { GiSkills } from "react-icons/gi";
 
 const defaultItems = [
   {
     name: "Home",
     link: "/",
-    icon: <IconHome className="h-4 w-4 !text-white dark:!text-white" />,
+    icon: <IconHome className="h-4 w-4" />, // Removed explicit color
   },
   {
     name: "Skills",
     link: "/skills",
-    icon: <IconUser className="h-4 w-4 !text-white dark:!text-white" />,
+    icon: <GiSkills className="h-4 w-4" />, // Removed explicit color
   },
   {
     name: "Projects",
     link: "/projects",
-    icon: <IconUser className="h-4 w-4 !text-white dark:!text-white" />,
+    icon: <GrProjects className="h-4 w-4" />, // Removed explicit color
   },
   {
     name: "Contact",
     link: "/contact",
-    icon: <IconMessage className="h-4 w-4 text-white dark:text-white" />,
+    icon: <IconMessage className="h-4 w-4" />, // Removed explicit color
   },
 ];
 
@@ -67,7 +69,8 @@ export const FloatingNav = () => {
         }}
         className={cn(
           "flex max-w-fit fixed top-3 inset-x-0 mx-auto border border-transparent rounded-xl dark:bg-black bg-white px-8 py-3 items-center justify-center space-x-8",
-          "bg-[#e30b5d] dark:bg-[#e30b5d] shadow-xl shadow-black/30 dark:shadow-[#e30b5d]/30"
+          "bg-[#e30b5d] dark:bg-[#e30b5d] shadow-xl shadow-[#e30b5d]/30 dark:shadow-[#e30b5d]/30",
+          "z-50"
         )}
       >
         {navItems.map((navItem, idx) => {
@@ -77,6 +80,7 @@ export const FloatingNav = () => {
 
           return (
             <Link
+              prefetch={true}
               key={`link-${idx}`}
               href={navItem.link}
               className={cn(
@@ -84,22 +88,13 @@ export const FloatingNav = () => {
                 "!text-white dark:!text-white",
                 "hover:scale-110 hover:bg-white dark:hover:bg-white hover:!text-[#e30b5d] dark:hover:!text-[#e30b5d]",
                 isActive &&
-                  "bg-white dark:bg-white !text-[#e30b5d] dark:!text-[#e30b5d]" // Active link styling
+                  "bg-white dark:bg-white !text-[#e30b5d] dark:!text-[#e30b5d]"
               )}
             >
-              <span className="block sm:hidden">{navItem.icon}</span>
-              <span className="hidden sm:block text-sm">
-                {navItem.name}
-                {isActive && (
-                  <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white dark:bg-white rounded-full"
-                    layoutId="navbar-indicator"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
+              <span className="block sm:hidden flex items-center justify-center">
+                {navItem.icon}
               </span>
+              <span className="hidden sm:block text-sm">{navItem.name}</span>
             </Link>
           );
         })}
@@ -108,7 +103,7 @@ export const FloatingNav = () => {
           onClick={() => {
             setTheme(isDarkMode ? "light" : "dark");
           }}
-          className="flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-black text-gray-800 dark:text-white hover:scale-110 transition-transform"
+          className="flex items-center justify-center w-8 h-8 rounded-lg bg-black dark:bg-white text-white dark:text-black hover:scale-110 transition-transform"
         >
           {isDarkMode ? (
             <IconSun className="h-5 w-5" />

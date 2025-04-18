@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import React, {
   createContext,
   useState,
@@ -9,6 +8,11 @@ import React, {
   useRef,
   useEffect,
 } from "react";
+import { FaGithub } from "react-icons/fa";
+
+import Image from "next/image";
+import Link from "next/link";
+
 
 const MouseEnterContext = createContext<
   [boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
@@ -49,7 +53,7 @@ export const CardContainer = ({
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
         className={cn(
-          "py-20 flex items-center justify-center",
+          "py-8 flex items-center justify-center",
           containerClassName
         )}
         style={{
@@ -153,3 +157,65 @@ export const useMouseEnter = () => {
   }
   return context;
 };
+
+
+
+export function ThreeDCard({
+  projectName,
+  description,
+  githubLink,
+  image
+}: {
+  projectName: string;
+  description?: string;
+  githubLink?: string;
+  image: string;
+}) {
+  return (
+    <CardContainer className="inter-var">
+      <CardBody className="bg-gray-50 relative group/card hover:shadow-2xl hover:shadow-[0_0_30px_10px_rgba(227,11,93,0.5)] dark:hover:shadow-2xl dark:hover:shadow-[0_0_30px_10px_rgba(227,11,93,0.5)] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[23rem] h-auto rounded-xl p-6 border  ">
+        <CardItem
+          translateZ="50"
+          className="text-xl font-bold text-black dark:text-white"
+        >
+          {projectName}
+        </CardItem>
+        <CardItem
+          as="p"
+          translateZ="60"
+          className="text-black text-sm max-w-sm mt-2 dark:text-neutral-300"
+        >
+          {description}
+        </CardItem>
+        <CardItem translateZ="100" className="w-full mt-4">
+          <Image
+            src={image}
+            height="1000"
+            width="1000"
+            className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+            alt="thumbnail"
+          />
+        </CardItem>
+        <div className="flex justify-between items-center mt-20">
+          <CardItem
+            translateZ={20}
+            as={Link}
+            href={githubLink}
+            target="_blank"
+            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+          >
+            <FaGithub className="h-4 w-4 mr-2" />
+            <span className="text-xs font-bold">Github</span>
+          </CardItem>
+          <CardItem
+            translateZ={20}
+            as="button"
+            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+          >
+            Learn More
+          </CardItem>
+        </div>
+      </CardBody>
+    </CardContainer>
+  );
+}
