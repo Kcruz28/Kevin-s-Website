@@ -26,9 +26,9 @@ export default function BackgroundParticles() {
       options={{
         fullScreen: { enable: false },
         particles: {
-          number: { value: 80 },
+          number: { value: 85 },
           color: { value: particleColor },
-          shape: { type: "circle" },
+          shape: { type: "triangle" },
           opacity: { value: 0.5 },
           size: { value: { min: 1, max: 3 } },
           links: {
