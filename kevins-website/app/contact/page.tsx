@@ -44,7 +44,7 @@ export default function Contact() {
           using the form below or through my contact information.
         </p>
       </div>
-      <div className="flex flex-row gap-4 mt-10">
+      <div className="flex flex-wrap gap-2 md:gap-4 justify-start mt-4">
         {contactInfo.map((contact) => (
           <FlatCard
             key={contact.title}

@@ -13,27 +13,29 @@ import {
 } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
+import { GrProjects } from "react-icons/gr";
+import { GiSkills } from "react-icons/gi";
 
 const defaultItems = [
   {
     name: "Home",
     link: "/",
-    icon: <IconHome className="h-4 w-4 !text-white dark:!text-white" />,
+    icon: <IconHome className="h-4 w-4" />, // Removed explicit color
   },
   {
     name: "Skills",
     link: "/skills",
-    icon: <IconUser className="h-4 w-4 !text-white dark:!text-white" />,
+    icon: <GiSkills className="h-4 w-4" />, // Removed explicit color
   },
   {
     name: "Projects",
     link: "/projects",
-    icon: <IconUser className="h-4 w-4 !text-white dark:!text-white" />,
+    icon: <GrProjects className="h-4 w-4" />, // Removed explicit color
   },
   {
     name: "Contact",
     link: "/contact",
-    icon: <IconMessage className="h-4 w-4 text-white dark:text-white" />,
+    icon: <IconMessage className="h-4 w-4" />, // Removed explicit color
   },
 ];
 
@@ -89,7 +91,9 @@ export const FloatingNav = () => {
                   "bg-white dark:bg-white !text-[#e30b5d] dark:!text-[#e30b5d]"
               )}
             >
-              <span className="block sm:hidden">{navItem.icon}</span>
+              <span className="block sm:hidden flex items-center justify-center">
+                {navItem.icon}
+              </span>
               <span className="hidden sm:block text-sm">{navItem.name}</span>
             </Link>
           );
