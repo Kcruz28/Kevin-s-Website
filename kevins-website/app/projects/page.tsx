@@ -42,7 +42,7 @@ export default function Projects() {
             Projects
           </h1>
           <p className="text-xl md:text-2xl text-left text-black dark:text-white">
-            Here's a showcase of projects I've built, demonstrating my skills
+            Here&apos;s a showcase of projects I&apos;ve built, demonstrating my skills
             and passion for development.
           </p>
         </div>

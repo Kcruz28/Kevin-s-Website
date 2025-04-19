@@ -7,7 +7,6 @@ import Link from "next/link";
 import {
   IconHome,
   IconMessage,
-  IconUser,
   IconMoon,
   IconSun,
 } from "@tabler/icons-react";
