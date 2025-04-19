@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 // import { motion, AnimatePresence } from "motion/react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ImFire } from "react-icons/im";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import {
@@ -19,7 +20,7 @@ const defaultItems = [
   {
     name: "Home",
     link: "/",
-    icon: <IconHome className="h-4 w-4" />, // Removed explicit color
+    icon: <ImFire className="h-4 w-4" />, // Removed explicit color
   },
   {
     name: "Skills",
