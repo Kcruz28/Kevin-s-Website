@@ -83,17 +83,19 @@ export const FloatingNav = () => {
               key={`link-${idx}`}
               href={navItem.link}
               className={cn(
-                "relative items-center flex space-x-1 font-bold transition-all duration-200 ease-in-out hover:cursor-pointer rounded-lg px-2 py-1",
+                "relative flex items-center justify-center gap-2 font-bold transition-all duration-200 ease-in-out hover:cursor-pointer rounded-lg px-2 py-2",
                 "!text-white dark:!text-white",
                 "hover:scale-110 hover:bg-white dark:hover:bg-white hover:!text-[#e30b5d] dark:hover:!text-[#e30b5d]",
                 isActive &&
                   "bg-white dark:bg-white !text-[#e30b5d] dark:!text-[#e30b5d]"
               )}
             >
-              <span className="block sm:hidden flex items-center justify-center">
+              <div className="flex items-center justify-center h-4 w-4">
                 {navItem.icon}
+              </div>
+              <span className="hidden sm:block text-sm leading-none">
+                {navItem.name}
               </span>
-              <span className="hidden sm:block text-sm">{navItem.name}</span>
             </Link>
           );
         })}
