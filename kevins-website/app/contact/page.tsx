@@ -3,7 +3,8 @@ import { FloatingNav } from "@/components/ui/floating-navbar";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { FlatCard } from "@/components/ui/card";
-// import { AnimatedBackground } from "animated-backgrounds";
+import { TitleCard } from "@/components/title-card";
+
 
 export default function Contact() {
   const contactInfo = [
@@ -28,22 +29,13 @@ export default function Contact() {
   ];
   return (
     <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      {/* <div className="absolute inset-0 +z-10">
-        <AnimatedBackground animationName="starryNight" blendMode="screen" />
-      </div>  */}
-
       <FloatingNav />
-      <div className="flex flex-col gap-6 mt-16">
-        <h1 className="text-xl md:text-9xl font-bold text-left text-black dark:text-white">
-          Get In
-          <br />
-          Touch
-        </h1>
-        <p className="text-xl md:text-2xl text-left text-black dark:text-white">
-          Have a question or want to work together? Feel free to contact me
-          using the form below or through my contact information.
-        </p>
-      </div>
+      <TitleCard
+        title1="Get In"
+        title2="Touch"
+        description=" Have a question or want to work together? Feel free to contact me
+          using the form below or through my contact information."
+      />
       <div className="flex flex-wrap gap-2 md:gap-4 justify-start mt-4">
         {contactInfo.map((contact) => (
           <FlatCard

@@ -4,9 +4,9 @@
 import React, { useState } from "react";
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { FlatCard } from "@/components/ui/card";
-
 import { FaCode, FaServer } from "react-icons/fa";
 import { BsStack, BsServer } from "react-icons/bs";
+import { TitleCard } from "@/components/title-card";
 
 import {
   programmingLanguages,
@@ -89,19 +89,12 @@ export default function Skills() {
   return (
     <div className="min-h-screen p-8 pb-20 sm:p-20">
       <FloatingNav />
+      <TitleCard
+        title1="My"
+        title2="Skills"
+        description="Here are some of the skills I have acquired over the years."
+      />
 
-      <div className="flex flex-col gap-6 mt-16">
-        <h1 className="text-xl md:text-9xl font-bold">
-          My
-          <br />
-          Skills
-        </h1>
-        <p className="text-xl md:text-2xl">
-          Here are some of the skills I have acquired over the years.
-        </p>
-      </div>
-
-      {/* Category buttons */}
       <div className="flex flex-wrap gap-2 md:gap-4 justify-start mt-4">
         {categories.map((c) => (
           <button

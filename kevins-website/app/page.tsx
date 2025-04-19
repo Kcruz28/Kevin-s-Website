@@ -48,7 +48,7 @@ export default function Home() {
       <FloatingNav />
       <div className="flex flex-col md:flex-row justify-between items-center mt-16">
         <div className="md:w-1/2 flex flex-col gap-6">
-          <h1 className="text-xl md:text-9xl font-bold text-left">
+          <h1 className="text-7xl md:text-9xl font-bold text-left">
             Kevin
             <br />
             Cruz
