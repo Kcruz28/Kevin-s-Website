@@ -49,7 +49,7 @@ export default function BackgroundParticles() {
           },
           move: {
             enable: true,
-            speed: 1.5,
+            speed: 0.5,
             direction: "none",
             outModes: "out",
           },

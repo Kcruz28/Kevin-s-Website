@@ -101,34 +101,6 @@ export const programmingLanguages = [
       />
     ),
   },
-  {
-    name: "MIPS",
-    description: "Knowledge of MIPS assembly language.",
-    category: "Programming Languages",
-    icon: (
-      <Image
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/embeddedc/embeddedc-original.svg"
-        width={40}
-        height={40}
-        className="h-10 w-10"
-        alt="MIPS"
-      />
-    ),
-  },
-  {
-    name: "Verilog",
-    description: "Experience with Verilog for hardware description.",
-    category: "Programming Languages",
-    icon: (
-      <Image
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
-        width={40}
-        height={40}
-        className="h-10 w-10"
-        alt="Verilog"
-      />
-    ),
-  },
 ];
 
 export const webTechnologies = [
@@ -245,7 +217,7 @@ export const frameworksAndLibraries = [
         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"
         width={40}
         height={40}
-        className="h-10 w-10"
+        className="h-10 w-10 "
         alt="PyTorch"
       />
     ),
@@ -259,7 +231,7 @@ export const frameworksAndLibraries = [
         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
         width={40}
         height={40}
-        className="h-10 w-10"
+        className="h-10 w-10 dark:bg-white dark:rounded"
         alt="Express.js"
       />
     ),
@@ -420,10 +392,10 @@ export const devOpsSkills = [
     category: "Software Development & Tools",
     icon: (
       <Image
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+        src="https://www.svgrepo.com/download/88703/api.svg"
         width={40}
         height={40}
-        className="h-10 w-10"
+        className="h-10 w-10 dark:bg-white dark:rounded"
         alt="RESTful APIs"
       />
     ),
@@ -434,10 +406,10 @@ export const devOpsSkills = [
     category: "Software Development & Tools",
     icon: (
       <Image
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+        src="https://www.svgrepo.com/download/74933/json-file.svg"
         width={40}
         height={40}
-        className="h-10 w-10"
+        className="h-10 w-10 dark:bg-white dark:rounded"
         alt="JSON"
       />
     ),
@@ -449,7 +421,7 @@ export const devOpsSkills = [
     category: "Software Development & Tools",
     icon: (
       <Image
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"
         width={40}
         height={40}
         className="h-10 w-10"

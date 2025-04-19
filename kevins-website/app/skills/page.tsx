@@ -70,7 +70,7 @@ const categories: { id: Category; name: string; icon: React.ReactNode }[] = [
   {
     id: "frameworks",
     name: "Frameworks",
-    icon: <BsStack className="h-5 w-5" />,
+    icon: <BsStack className="h-5 w-5 " />,
   },
   { id: "backend", name: "Backend", icon: <FaServer className="h-5 w-5" /> },
   {
