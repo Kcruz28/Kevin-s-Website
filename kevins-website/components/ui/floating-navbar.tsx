@@ -2,40 +2,35 @@
 import React, { useEffect } from "react";
 // import { motion, AnimatePresence } from "motion/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ImFire } from "react-icons/im";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import {
-  IconHome,
-  IconMessage,
-  IconMoon,
-  IconSun,
-} from "@tabler/icons-react";
+import { IconMessage, IconMoon, IconSun } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import { GrProjects } from "react-icons/gr";
 import { GiSkills } from "react-icons/gi";
+import { ImFire } from "react-icons/im";
 
 const defaultItems = [
   {
     name: "Home",
     link: "/",
-    icon: <ImFire className="h-4 w-4" />, // Removed explicit color
+    icon: <ImFire className="h-4 w-4" />,
   },
   {
     name: "Skills",
     link: "/skills",
-    icon: <GiSkills className="h-4 w-4" />, // Removed explicit color
+    icon: <GiSkills className="h-4 w-4" />,
   },
   {
     name: "Projects",
     link: "/projects",
-    icon: <GrProjects className="h-4 w-4" />, // Removed explicit color
+    icon: <GrProjects className="h-4 w-4" />,
   },
   {
     name: "Contact",
     link: "/contact",
-    icon: <IconMessage className="h-4 w-4" />, // Removed explicit color
+    icon: <IconMessage className="h-4 w-4" />,
   },
 ];
 

@@ -1,5 +1,4 @@
 "use client";
-
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import { useEffect, useState } from "react";
@@ -8,16 +7,26 @@ import { useTheme } from "next-themes";
 export default function BackgroundParticles() {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   if (!mounted) return null;
 
   const currentTheme = theme === "system" ? systemTheme : theme;
   const particleColor = currentTheme === "dark" ? "#ffffff" : "#666666";
-
+  const particleCount = isMobile ? 30 : 80;
+  
   return (
     <Particles
       key={currentTheme}
@@ -26,7 +35,7 @@ export default function BackgroundParticles() {
       options={{
         fullScreen: { enable: false },
         particles: {
-          number: { value: 80 },
+          number: { value: particleCount },
           color: { value: particleColor },
           shape: { type: "triangle" },
           opacity: { value: 0.5 },
