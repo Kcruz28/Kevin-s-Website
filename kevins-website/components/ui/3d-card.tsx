@@ -204,13 +204,13 @@ export function ThreeDCard({
             <FaGithub className="h-4 w-4 mr-2" />
             <span className="text-xs font-bold">Github</span>
           </CardItem>
-          <CardItem
+          {/* <CardItem
             translateZ={20}
             as="button"
             className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
           >
             Learn More
-          </CardItem>
+          </CardItem> */}
         </div>
       </CardBody>
     </CardContainer>
