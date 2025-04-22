@@ -24,7 +24,7 @@ export default function BackgroundParticles() {
   if (!mounted) return null;
 
   const currentTheme = theme === "system" ? systemTheme : theme;
-  const particleColor = currentTheme === "dark" ? "#ffffff" : "#666666";
+  const particleColor = currentTheme === "dark" ? "#ffffff" : "#000000";
   const particleCount = isMobile ? 30 : 80;
   
   return (
