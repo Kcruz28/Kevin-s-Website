@@ -66,7 +66,7 @@ export default function ProjectDetailPage() {
         </div>
       )}
 
-      <div className="mb-8 bg-white/80 dark:bg-black/60 backdrop-blur-md p-6 rounded-xl shadow-md border border-white transition duration-500">
+      <div className="mb-8 bg-white/80 dark:bg-black/60 backdrop-blur-md p-6 rounded-xl shadow-md border border-black dark:border-white transition duration-500">
         <p className="text-lg whitespace-pre-line text-black dark:text-white">
           {project.description}
         </p>
