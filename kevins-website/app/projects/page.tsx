@@ -10,6 +10,7 @@ const projectInfo = [
       "A fun and interactive game of Loteria, powered by AI. Play against the computer or challenge your friends",
     githubLink: "https://github.com/SHPE-Tech-Team/AI_Loteria_24-25",
     image: "/loteria_deck.jpg",
+    id: "loteria",
   },
   {
     projects: "Ticket Masterer",
@@ -17,20 +18,26 @@ const projectInfo = [
       "Academic project that we compare and share the best ticket prices for events",
     githubLink: "https://github.com/ajay-del-bot/CS411_CRUDApp",
     image: "/tickets.webp",
+    id: "ticket-masterer",
   },
   {
     projects: "NetWhiz Project",
     description: "A website where it has lessons about Computer Network",
     githubLink: "https://github.com/Networking-Platform/NetWhiz",
     image: "/network.jpg",
+    id: "netwhiz",
   },
   {
     projects: "Tic Tac Toe",
     description: "A simple tic tac toe game that is played in the terminal",
     githubLink: "https://github.com/Kcruz28/tic-tac-toe",
     image: "/tic tac toe.jpg",
+    id: "tic-tac-toe",
   },
 ];
+
+
+
 
 export default function Projects() {
     return (
@@ -50,6 +57,7 @@ export default function Projects() {
               description={project.description}
               githubLink={project.githubLink}
               image={project.image}
+              id={project.id}
             />
           ))}
         </div>

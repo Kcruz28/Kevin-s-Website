@@ -162,11 +162,13 @@ export function ThreeDCard({
   description,
   githubLink,
   image,
+  id
 }: {
   projectName: string;
   description?: string;
   githubLink?: string;
   image: string;
+  id: string;
 }) {
   return (
     <CardContainer className="inter-var">
@@ -204,13 +206,15 @@ export function ThreeDCard({
             <FaGithub className="h-4 w-4 mr-2" />
             <span className="text-xs font-bold">Github</span>
           </CardItem>
-          {/* <CardItem
+          <CardItem
             translateZ={20}
             as="button"
             className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
           >
-            Learn More
-          </CardItem> */}
+            <Link href={`/projects/${id}`}>
+             Learn More
+            </Link>
+          </CardItem>
         </div>
       </CardBody>
     </CardContainer>
