@@ -1,4 +1,3 @@
-
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { ThreeDCard } from "@/components/ui/3d-card";
 import { TitleCard } from "@/components/title-card";
@@ -44,32 +43,28 @@ const projectInfo = [
   },
 ];
 
-
-
-
 export default function Projects() {
-    return (
-      <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] ">
-        <FloatingNav />
-        <TitleCard
-          title1="My"
-          title2="Projects"
-          description="Here's a showcase of projects I've built, demonstrating my skills
+  return (
+    <div className="min-h-screen px-4 md:px-20 pb-20 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
+      <FloatingNav />
+      <TitleCard
+        title1="My"
+        title2="Projects"
+        description="Here's a showcase of projects I've built, demonstrating my skills
             and passion for development."
-        />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-1">
-          {projectInfo.map((project, index) => (
-            <ThreeDCard
-              key={index}
-              projectName={project.projects}
-              description={project.description}
-              githubLink={project.githubLink}
-              image={project.image}
-              id={project.id}
-            />
-          ))}
-        </div>
+      />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-1">
+        {projectInfo.map((project, index) => (
+          <ThreeDCard
+            key={index}
+            projectName={project.projects}
+            description={project.description}
+            githubLink={project.githubLink}
+            image={project.image}
+            id={project.id}
+          />
+        ))}
       </div>
-    );
- }
-
+    </div>
+  );
+}

@@ -63,12 +63,46 @@ export const FloatingNav = () => {
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit fixed top-4 inset-x-0 mx-auto rounded-2xl border px-12 py-4 items-center justify-center gap-12 z-50",
+          "group/nav flex max-w-fit fixed top-4 inset-x-0 mx-auto rounded-2xl border px-12 py-4 items-center justify-center gap-12 z-50",
           "bg-white/30 dark:bg-black/40 backdrop-blur-xl transition-colors duration-300",
           "border-white/70 dark:border-white/10",
-          "shadow-[0_8px_32px_0_rgba(60,60,60,0.18)] dark:shadow-xl"
+          "shadow-[0_8px_32px_0_rgba(60,60,60,0.18)] dark:shadow-xl",
+          "outline-none relative"
         )}
+        tabIndex={0}
       >
+        {/* Animated gradient outline (subtle, like the bar in page.tsx) */}
+        <span className="pointer-events-none absolute inset-0 rounded-2xl z-[-1] opacity-0 group-hover/nav:opacity-100 group-focus/nav:opacity-100 transition-opacity duration-300">
+          <span
+            className="block w-full h-full rounded-2xl border-4 border-transparent animate-navbar-gradient-outline"
+            style={{
+              background:
+                "linear-gradient(90deg, #e30b5d, #6366f1, #0ea5e9, #e30b5d)",
+              backgroundSize: "200% 200%",
+              backgroundPosition: "0% 50%",
+              WebkitMask:
+                "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+              WebkitMaskComposite: "xor",
+              maskComposite: "exclude",
+            }}
+          />
+        </span>
+        <style jsx global>{`
+          @keyframes navbar-gradient-outline {
+            0% {
+              background-position: 0% 50%;
+            }
+            100% {
+              background-position: 100% 50%;
+            }
+          }
+          .animate-navbar-gradient-outline {
+            background-size: 200% 200%;
+            animation: navbar-gradient-outline 2.5s linear infinite alternate;
+            box-shadow: 0 0 8px 2px #e30b5d66, 0 0 16px 4px #6366f166,
+              0 0 24px 8px #0ea5e966;
+          }
+        `}</style>
         {navItems.map((navItem, idx) => {
           const isActive =
             pathname === navItem.link ||

@@ -44,7 +44,7 @@ function TypedText({
 export default function Home() {
   const [scrollY] = useState(0);
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen px-4 md:px-20 pb-20 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
       <FloatingNav />
       <div className="flex flex-col md:flex-row justify-between items-center mt-24 sm:mt-10 md:mt-6">
         <div className="md:w-1/2 flex flex-col items-start gap-3 sm:gap-4">
@@ -62,7 +62,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.12, type: "tween" }}
-            className="block w-32 sm:w-48 h-2 rounded-full bg-gradient-to-r from-[#e30b5d] via-[#6366f1] to-[#0ea5e9] animate-gradient-move opacity-95 shadow-[0_0_32px_8px_rgba(227,11,93,0.35),0_0_40px_16px_rgba(99,102,241,0.22),0_0_48px_20px_rgba(14,165,233,0.16)] mb-2"
+            className="block w-32 sm:w-48 h-2 rounded-full bg-gradient-to-r from-[#e30b5d] via-[#6366f1] to-[#0ea5e9] animate-gradient-move opacity-95 shadow-[0_0_32px_8px_rgba(227,11,93,0.20),0_0_40px_16px_rgba(99,102,241,0.15),0_0_48px_20px_rgba(14,165,233,0.10)] mb-2"
           />
           {/* Modern Glassy Description Container */}
           <motion.div
