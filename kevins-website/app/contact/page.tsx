@@ -5,7 +5,6 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { FlatCard } from "@/components/ui/card";
 import { TitleCard } from "@/components/title-card";
 
-
 export default function Contact() {
   const contactInfo = [
     {
@@ -28,7 +27,7 @@ export default function Contact() {
     },
   ];
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen px-4 md:px-20 pb-20 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
       <FloatingNav />
       <TitleCard
         title1="Get In"

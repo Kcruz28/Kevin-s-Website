@@ -16,7 +16,6 @@ import {
   devOpsSkills,
 } from "@/data/skills_data";
 
-
 type Category =
   | "languages"
   | "frameworks"
@@ -31,7 +30,6 @@ export interface Skill {
   icon: React.ReactNode;
   category?: string;
 }
-
 
 const skillsByCategory: Record<Category, { title: string; skills: Skill[] }> = {
   languages: {
@@ -87,7 +85,7 @@ export default function Skills() {
   const activeSkillCategory = skillsByCategory[activeCategory];
 
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20">
+    <div className="min-h-screen px-4 md:px-20 pb-20 sm:p-0">
       <FloatingNav />
       <TitleCard
         title1="My"
