@@ -95,18 +95,24 @@ export const FlatCard = ({
     <Card
       className={cn(
         "w-full h-full",
-        "hover:shadow-2xl",
-        "hover:shadow-[0_0_30px_10px_rgba(227,11,93,0.5)]",
-        "dark:hover:shadow-2xl",
-        "dark:hover:shadow-[0_0_30px_10px_rgba(227,11,93,0.5)]",
-        "transition-all duration-300 ease-in-out"
+        "bg-white/30 dark:bg-black/30 backdrop-blur-[2px]",
+        "border border-white/10 dark:border-white/10 rounded-lg",
+        "shadow-md dark:shadow-none",
+        "hover:shadow-lg hover:shadow-[0_0_15px_5px_rgba(255,255,255,0.2)]",
+        "transition-transform duration-300 ease-in-out hover:scale-105"
       )}
     >
       <div className="flex items-start gap-4">
-        <div className="flex-shrink-0 mt-3">{icon}</div>
+        <div className="flex-shrink-0 mt-3 text-[#e30b5d] dark:text-[#e30b5d]">
+          {icon}
+        </div>
         <div>
-          <CardTitle className="text-lg font-bold">{name}</CardTitle>
-          <CardDescription className="text-sm">{description}</CardDescription>
+          <CardTitle className="text-lg font-bold text-gray-800 dark:text-white">
+            {name}
+          </CardTitle>
+          <CardDescription className="text-sm text-neutral-600 dark:text-neutral-400">
+            {description}
+          </CardDescription>
         </div>
       </div>
     </Card>
