@@ -5,12 +5,20 @@ import { TitleCard } from "@/components/title-card";
 
 const projectInfo = [
   {
-    projects: "SHPE Tech Team AI Loteria",
+    projects: "AI Loteria",
     description:
       "A fun and interactive game of Loteria, powered by AI. Play against the computer or challenge your friends",
-    githubLink: "https://github.com/SHPE-Tech-Team/AI_Loteria_24-25",
+    githubLink: "https://github.com/Kcruz28/AI-Loteria",
     image: "/loteria_deck.jpg",
     id: "loteria",
+  },
+  {
+    projects: "SHPE Tech Team Website",
+    description:
+      "The official website for the SHPE Tech Team, showcasing our projects and events",
+    githubLink: "https://github.com/SHPE-Tech-Team/AI_Loteria_24-25",
+    image: "/shpelogo.png",
+    id: "shpe-tech-team",
   },
   {
     projects: "Ticket Masterer",

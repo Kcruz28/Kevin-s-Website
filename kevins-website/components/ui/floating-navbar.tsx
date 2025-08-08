@@ -63,9 +63,10 @@ export const FloatingNav = () => {
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit fixed top-3 inset-x-0 mx-auto border border-transparent rounded-xl dark:bg-black bg-white px-8 py-3 items-center justify-center space-x-8",
-          "bg-[#e30b5d] dark:bg-[#e30b5d] shadow-xl shadow-[#e30b5d]/30 dark:shadow-[#e30b5d]/30",
-          "z-50"
+          "flex max-w-fit fixed top-4 inset-x-0 mx-auto rounded-2xl border px-12 py-4 items-center justify-center gap-12 z-50",
+          "bg-white/30 dark:bg-black/40 backdrop-blur-xl transition-colors duration-300",
+          "border-white/70 dark:border-white/10",
+          "shadow-[0_8px_32px_0_rgba(60,60,60,0.18)] dark:shadow-xl"
         )}
       >
         {navItems.map((navItem, idx) => {
@@ -79,11 +80,11 @@ export const FloatingNav = () => {
               key={`link-${idx}`}
               href={navItem.link}
               className={cn(
-                "relative flex items-center justify-center gap-2 font-bold transition-all duration-200 ease-in-out hover:cursor-pointer rounded-lg px-2 py-2",
-                "!text-white dark:!text-white",
-                "hover:scale-110 hover:bg-white dark:hover:bg-white hover:!text-[#e30b5d] dark:hover:!text-[#e30b5d]",
-                isActive &&
-                  "bg-white dark:bg-white !text-[#e30b5d] dark:!text-[#e30b5d]"
+                "relative flex items-center justify-center gap-2 font-bold text-base transition-all duration-200 ease-in-out hover:cursor-pointer px-2 py-1",
+                "text-black dark:text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.18)] dark:drop-shadow-none",
+                "after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-1 after:rounded-full after:opacity-0 after:transition-all after:duration-300 after:bg-gradient-to-r after:from-[#e30b5d] after:via-[#6366f1] after:to-[#0ea5e9]",
+                "hover:after:opacity-100 hover:after:scale-100",
+                isActive && "after:opacity-100 after:scale-100"
               )}
             >
               <div className="flex items-center justify-center h-4 w-4">
@@ -100,7 +101,8 @@ export const FloatingNav = () => {
           onClick={() => {
             setTheme(isDarkMode ? "light" : "dark");
           }}
-          className="flex items-center justify-center w-8 h-8 rounded-lg bg-black dark:bg-white text-white dark:text-black hover:scale-110 transition-transform"
+          className="flex items-center justify-center w-10 h-10 rounded-full border border-white/40 dark:border-white/20 bg-white/30 dark:bg-black/40 backdrop-blur-md text-[#e30b5d] dark:text-[#e30b5d] hover:shadow-lg hover:shadow-[#e30b5d]/30 transition-all"
+          aria-label="Toggle theme"
         >
           {isDarkMode ? (
             <IconSun className="h-5 w-5" />
@@ -108,6 +110,8 @@ export const FloatingNav = () => {
             <IconMoon className="h-5 w-5" />
           )}
         </button>
+        {/* Animated gradient accent bar */}
+        <div className="absolute left-4 right-4 bottom-0 h-1 rounded-full bg-gradient-to-r from-[#e30b5d] via-[#6366f1] to-[#0ea5e9] animate-pulse opacity-80" />
       </motion.div>
     </AnimatePresence>
   );

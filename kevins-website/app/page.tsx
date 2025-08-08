@@ -46,48 +46,93 @@ export default function Home() {
   return (
     <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <FloatingNav />
-      <div className="flex flex-col md:flex-row justify-between items-center mt-16">
-        <div className="md:w-1/2 flex flex-col gap-6">
-          <h1 className="text-7xl md:text-9xl font-bold text-left">
-            Kevin
-            <br />
-            Cruz
-            <br />
-            Lopez
-          </h1>
-          <p className="text-xl md:text-2xl text-left">
-            I am a software engineer with a passion for building web
-            applications. I have experience in full-stack development, and I
-            enjoy working with modern technologies to create efficient and
-            scalable solutions.
-          </p>
-          <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row justify-between items-center mt-24 sm:mt-10 md:mt-6">
+        <div className="md:w-1/2 flex flex-col items-start gap-3 sm:gap-4">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, type: "spring" }}
+            className="text-7xl sm:text-8xl md:text-8xl lg:text-9xl font-extrabold text-left text-black dark:text-white drop-shadow-[0_4px_32px_rgba(60,60,60,0.18)] leading-[1.05]"
+          >
+            Kevin <br /> Cruz
+            <br /> Lopez
+          </motion.h1>
+          {/* Animated Gradient Bar */}
+          <motion.span
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.12, type: "tween" }}
+            className="block w-32 sm:w-48 h-2 rounded-full bg-gradient-to-r from-[#e30b5d] via-[#6366f1] to-[#0ea5e9] animate-gradient-move opacity-95 shadow-[0_0_32px_8px_rgba(227,11,93,0.35),0_0_40px_16px_rgba(99,102,241,0.22),0_0_48px_20px_rgba(14,165,233,0.16)] mb-2"
+          />
+          {/* Modern Glassy Description Container */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, type: "tween" }}
+            className="w-full max-w-xl py-4 px-6 bg-white/80 dark:bg-black/60 backdrop-blur-md rounded-2xl border border-white/30 dark:border-white/10 shadow-2xl shadow-gray-400/40 dark:shadow-none"
+          >
+            <p className="text-base sm:text-lg md:text-xl text-left text-gray-800 dark:text-gray-100 font-medium leading-relaxed">
+              I am a software engineer with a passion for building web
+              applications.
+              <br className="hidden sm:block" />
+              Experienced in full-stack development, I love working with modern
+              technologies to create efficient and scalable solutions.
+            </p>
+          </motion.div>
+          {/* Animated Socials */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25, type: "tween" }}
+            className="flex gap-4 mt-1"
+          >
             <a
               href="https://www.linkedin.com/in/kevin-cruz-lopez/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
+              className="group"
             >
-              <FaLinkedin className="text-5xl text-[#0077B5] mt-4 hover:scale-110 transition-transform" />
+              <span className="inline-flex items-center justify-center">
+                <FaLinkedin className="text-5xl sm:text-6xl md:text-5xl text-[#0077B5] drop-shadow-lg group-hover:scale-125 group-hover:-translate-y-2 group-hover:shadow-[0_0_16px_#0077B5] transition-all duration-300" />
+              </span>
             </a>
             <a
               href="https://github.com/Kcruz28"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
+              className="group"
             >
-              <FaGithub className="text-5xl text-gray-800 dark:text-white mt-4 hover:scale-110 transition-transform" />
+              <span className="inline-flex items-center justify-center">
+                <FaGithub className="text-5xl sm:text-6xl md:text-5xl text-gray-800 dark:text-white drop-shadow-lg group-hover:scale-125 group-hover:-translate-y-2 group-hover:shadow-[0_0_16px_#6366f1] transition-all duration-300" />
+              </span>
             </a>
-          </div>
+          </motion.div>
         </div>
+        {/* Animated gradient bar keyframes */}
+        <style jsx global>{`
+          @keyframes gradient-move {
+            0% {
+              background-position: 0% 50%;
+            }
+            100% {
+              background-position: 100% 50%;
+            }
+          }
+          .animate-gradient-move {
+            background-size: 200% 200%;
+            animation: gradient-move 2.5s linear infinite alternate;
+          }
+        `}</style>
 
         {/* Right column - Image */}
-        <div className="md:w-1/3 mt-8 md:mt-0 ">
+        <div className="hidden md:block md:w-1/3 mt-8 md:mt-0 flex justify-center md:justify-end">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex justify-center md:justify-end"
+            className="flex justify-center md:justify-end w-full"
             style={{ transform: `translateY(${scrollY * -0.05}px)` }}
           >
             <div className="relative w-full max-w-md">
