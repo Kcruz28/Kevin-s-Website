@@ -172,7 +172,7 @@ export function ThreeDCard({
 }) {
   return (
     <CardContainer className="inter-var">
-      <CardBody className="bg-white/50 dark:bg-black/50 backdrop-blur-[6px] relative group/card hover:shadow-2xl hover:shadow-[0_0_30px_10px_rgba(227,11,93,0.5)] dark:hover:shadow-2xl dark:hover:shadow-[0_0_30px_10px_rgba(227,11,93,0.5)] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[23rem] h-auto rounded-xl p-6 border">
+      <CardBody className="bg-gray-50 relative group/card hover:shadow-2xl hover:shadow-[0_0_30px_10px_rgba(227,11,93,0.5)] dark:hover:shadow-2xl dark:hover:shadow-[0_0_30px_10px_rgba(227,11,93,0.5)] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[23rem] h-auto rounded-xl p-6 border  ">
         <CardItem
           translateZ="50"
           className="text-xl font-bold text-black dark:text-white"
@@ -209,7 +209,7 @@ export function ThreeDCard({
           <CardItem
             translateZ={20}
             as="button"
-            className="px-4 py-2 rounded-xl bg-black/80 dark:bg-white/80 dark:text-black text-white text-xs font-bold"
+            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
           >
             <Link href={`/projects/${id}`}>Learn More</Link>
           </CardItem>
