@@ -19,6 +19,7 @@
     "flyonui": "^2.1.0",
     "framer-motion": "^12.6.3",
     "jquery": "^3.7.1",
+    "liquid-glass-react": "^1.1.1",
     "lodash": "^4.17.21",
     "lucide-react": "^0.487.0",
     "motion": "^12.6.3",

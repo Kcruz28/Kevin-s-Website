@@ -45,13 +45,12 @@ const projectInfo = [
 
 export default function Projects() {
   return (
-    <div className="min-h-screen px-4 md:px-20 pb-20 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen px-4 md:px-20 pb-20 pt-24 font-[family-name:var(--font-geist-sans)]">
       <FloatingNav />
       <TitleCard
         title1="My"
         title2="Projects"
-        description="Here's a showcase of projects I've built, demonstrating my skills
-            and passion for development."
+        description="Here's a showcase of projects I've built, demonstrating my skills and passion for development."
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-1">
         {projectInfo.map((project, index) => (

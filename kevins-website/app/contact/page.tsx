@@ -27,41 +27,49 @@ export default function Contact() {
     },
   ];
   return (
-    <div className="min-h-screen px-4 md:px-20 pb-20 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen px-4 md:px-20 pb-20 pt-24 font-[family-name:var(--font-geist-sans)]">
       <FloatingNav />
       <TitleCard
         title1="Get In"
         title2="Touch"
-        description=" Have a question or want to work together? Feel free to contact me
-          using the form below or through my contact information."
+        description="Have a question or want to work together? Feel free to reach out through any of the channels below."
       />
-      <div className="flex flex-wrap gap-2 md:gap-4 justify-start mt-4">
-        {contactInfo.map((contact) => (
-          <FlatCard
-            key={contact.title}
-            name={contact.title}
-            description={contact.value}
-            icon={contact.icon}
-          />
-        ))}
-      </div>
-      <div className="flex justify-center items-center gap-4 w-full mt-6">
-        <a
-          href="https://www.linkedin.com/in/kevin-cruz-lopez/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn Profile"
-        >
-          <FaLinkedin className="text-5xl text-[#0077B5] mt-4 hover:scale-110 transition-transform" />
-        </a>
-        <a
-          href="https://github.com/Kcruz28"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub Profile"
-        >
-          <FaGithub className="text-5xl text-gray-800 dark:text-white mt-4 hover:scale-110 transition-transform" />
-        </a>
+
+      <div className="flex flex-col items-center gap-10 mt-12 max-w-4xl mx-auto">
+        <div className="flex flex-col gap-6 w-full items-center">
+          <div className="grid gap-6 md:grid-cols-3 w-full">
+            {contactInfo.map((contact) => (
+              <FlatCard
+                key={contact.title}
+                name={contact.title}
+                description={contact.value}
+                icon={contact.icon}
+              />
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-6">Connect with me</h4>
+            <div className="flex gap-6 justify-center">
+              <a
+                href="https://www.linkedin.com/in/kcruz10/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-5 bg-white dark:bg-zinc-900 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 border border-gray-100 dark:border-zinc-800 group"
+              >
+                <FaLinkedin className="text-3xl text-[#0077B5] group-hover:scale-110 transition-transform" />
+              </a>
+              <a
+                href="https://github.com/Kcruz28"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-5 bg-white dark:bg-zinc-900 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 border border-gray-100 dark:border-zinc-800 group"
+              >
+                <FaGithub className="text-3xl text-gray-800 dark:text-white group-hover:scale-110 transition-transform" />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
