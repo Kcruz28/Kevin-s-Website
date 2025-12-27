@@ -172,7 +172,10 @@ export function ThreeDCard({
 }) {
   return (
     <CardContainer className="inter-var">
-      <CardBody className="bg-gray-50 relative group/card hover:shadow-2xl hover:shadow-[0_0_30px_10px_rgba(227,11,93,0.5)] dark:hover:shadow-2xl dark:hover:shadow-[0_0_30px_10px_rgba(227,11,93,0.5)] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[23rem] h-auto rounded-xl p-6 border  ">
+      <CardBody className="relative group/card w-auto sm:w-[23rem] h-auto rounded-xl p-6 border border-black/[0.1] dark:border-white/[0.2] bg-gray-50 dark:bg-black">
+        {/* Gradient Glow Effect */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#e30b5d] via-[#6366f1] to-[#0ea5e9] rounded-xl opacity-0 group-hover/card:opacity-40 blur-xl transition-opacity duration-500" />
+
         <CardItem
           translateZ="50"
           className="text-xl font-bold text-black dark:text-white"

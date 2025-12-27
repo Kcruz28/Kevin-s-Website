@@ -1,6 +1,7 @@
 "use client";
 import { FloatingNav } from "@/components/ui/floating-navbar";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaArrowDown } from "react-icons/fa";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -43,6 +44,11 @@ function TypedText({
 
 export default function Home() {
   const [scrollY] = useState(0);
+  const aboutRef = useRef<HTMLDivElement>(null);
+
+  const scrollToAbout = () => {
+    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className="min-h-screen px-4 md:px-20 pb-20 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
       <FloatingNav />
@@ -69,45 +75,51 @@ export default function Home() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.15, type: "tween" }}
-            className="w-full max-w-xl py-4 px-6 bg-white/80 dark:bg-black/60 backdrop-blur-md rounded-2xl border border-white/30 dark:border-white/10 shadow-2xl shadow-gray-400/40 dark:shadow-none"
+            className="w-full max-w-xl py-6 px-8 bg-white/80 dark:bg-black/60 backdrop-blur-md rounded-2xl border border-white/30 dark:border-white/10 shadow-2xl shadow-gray-400/40 dark:shadow-none"
           >
-            <p className="text-base sm:text-lg md:text-xl text-left text-gray-800 dark:text-gray-100 font-medium leading-relaxed">
-              I am a software engineer with a passion for building web
-              applications.
-              <br className="hidden sm:block" />
-              Experienced in full-stack development, I love working with modern
-              technologies to create efficient and scalable solutions.
-            </p>
+            <div className="flex flex-col gap-4 text-base sm:text-lg md:text-xl text-left text-gray-800 dark:text-gray-100 font-medium leading-relaxed">
+              <p>
+                I am a software engineer with a passion for building web applications.
+              </p>
+              <p>
+                Experienced in full-stack development, I love working with modern
+                technologies to create efficient and scalable solutions.
+              </p>
+            </div>
           </motion.div>
           {/* Animated Socials */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25, type: "tween" }}
-            className="flex gap-4 mt-1"
+            className="relative z-10 flex flex-wrap gap-4 mt-8 w-full items-center"
           >
             <a
-              href="https://www.linkedin.com/in/kevin-cruz-lopez/"
+              href="https://www.linkedin.com/in/kcruz10/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn Profile"
-              className="group"
+              className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
             >
-              <span className="inline-flex items-center justify-center">
-                <FaLinkedin className="text-5xl sm:text-6xl md:text-5xl text-[#0077B5] drop-shadow-lg group-hover:scale-125 group-hover:-translate-y-2 group-hover:shadow-[0_0_16px_#0077B5] transition-all duration-300" />
-              </span>
+              <FaLinkedin className="text-2xl text-[#0077B5] group-hover:drop-shadow-[0_0_8px_rgba(0,119,181,0.5)]" />
+              <span className="font-semibold text-gray-800 dark:text-white">LinkedIn</span>
             </a>
             <a
               href="https://github.com/Kcruz28"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub Profile"
-              className="group"
+              className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
             >
-              <span className="inline-flex items-center justify-center">
-                <FaGithub className="text-5xl sm:text-6xl md:text-5xl text-gray-800 dark:text-white drop-shadow-lg group-hover:scale-125 group-hover:-translate-y-2 group-hover:shadow-[0_0_16px_#6366f1] transition-all duration-300" />
-              </span>
+              <FaGithub className="text-2xl text-gray-800 dark:text-white group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+              <span className="font-semibold text-gray-800 dark:text-white">GitHub</span>
             </a>
+
+            {/* Scroll Arrow - Centered on split line for desktop, flowing on mobile */}
+            <div
+              onClick={scrollToAbout}
+              className="flex items-center justify-center w-14 h-14 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer group md:absolute md:right-0 md:translate-x-1/2 md:top-1/2 md:-translate-y-1/2"
+            >
+              <FaArrowDown className="text-xl text-gray-800 dark:text-white animate-bounce" />
+            </div>
           </motion.div>
         </div>
         {/* Animated gradient bar keyframes */}
@@ -137,15 +149,15 @@ export default function Home() {
           >
             <div className="relative w-full max-w-md">
               <div className="absolute -inset-4 rounded-xl bg-gradient-to-tr from-rose-500 to-purple-500 opacity-20 blur-xl"></div>
-              <div className="relative bg-gray-900 rounded-xl overflow-hidden shadow-xl border border-gray-800">
+              <div className="relative bg-black/80 backdrop-blur-xl rounded-xl overflow-hidden shadow-2xl border border-white/10">
                 {/* Terminal header */}
-                <div className="flex items-center p-3 bg-gray-800 border-b border-gray-700">
+                <div className="flex items-center p-3 bg-white/5 border-b border-white/10">
                   <div className="flex space-x-2">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                   </div>
-                  <div className="mx-auto text-gray-400 text-sm font-mono">
+                  <div className="mx-auto text-gray-400 text-sm font-mono opacity-50">
                     kevin@portfolio ~{" "}
                   </div>
                 </div>
@@ -208,13 +220,73 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-lg border-4 border-white dark:border-gray-800">
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl border-4 border-white/5">
                 <span className="text-3xl font-bold text-rose-500">3+</span>
-                <span className="text-xs absolute bottom-5">years exp</span>
+                <span className="text-xs absolute bottom-5 text-gray-400">years exp</span>
               </div>
             </div>
           </motion.div>
         </div>
+      </div>
+
+
+      {/* About Me Section */}
+      <div ref={aboutRef} className="mt-10 mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-6xl mx-auto"
+        >
+          <div className="flex items-center gap-4 mb-12">
+            <div className="h-1 w-20 bg-gradient-to-r from-[#e30b5d] to-[#6366f1] rounded-full"></div>
+            <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white">
+              About Me
+            </h2>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            {/* Left: Text Content in Glass Card */}
+            <div className="md:w-1/2 order-2 md:order-1 relative">
+              <div className="relative bg-white/60 dark:bg-black/40 backdrop-blur-xl p-8 rounded-2xl border border-white/20 dark:border-white/10 shadow-xl">
+                <div className="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-light">
+                  <p>
+                    Hello! I'm <span className="font-semibold text-black dark:text-white">Kevin</span>, a passionate software engineer based in the United States.
+                    My journey in tech started with a curiosity for how things work, which quickly
+                    evolved into a love for building software that solves real-world problems.
+                  </p>
+                  <p>
+                    I specialize in <span className="text-[#e30b5d] font-medium">full-stack development</span>, with a strong focus on the React ecosystem
+                    (Next.js, TypeScript) and modern backend architectures. I strongly believe in
+                    writing clean, maintainable code and creating intuitive user experiences.
+                  </p>
+                  <p>
+                    When I'm not coding, you can find me exploring new technologies, contributing
+                    to open source, or enjoying a good cup of coffee while brainstorming my next project.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Image with Frame */}
+            <div className="md:w-1/2 order-1 md:order-2 flex justify-center perspective-1000">
+              <motion.div
+                whileHover={{ scale: 1.02, rotateY: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="relative w-72 h-72 md:w-96 md:h-96"
+              >
+                <div className="relative w-full h-full rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl">
+                  <img
+                    src="/kev.jpeg"
+                    alt="Kevin Cruz Lopez"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
