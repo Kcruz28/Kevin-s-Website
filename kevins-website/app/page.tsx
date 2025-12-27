@@ -53,12 +53,12 @@ export default function Home() {
     <div className="min-h-screen px-4 md:px-20 pb-20 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
       <FloatingNav />
       <div className="flex flex-col md:flex-row justify-between items-center mt-24 sm:mt-10 md:mt-6">
-        <div className="md:w-1/2 flex flex-col items-start gap-3 sm:gap-4">
+        <div className="md:w-1/2 flex flex-col items-center md:items-start gap-3 sm:gap-4">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, type: "spring" }}
-            className="text-7xl sm:text-8xl md:text-8xl lg:text-9xl font-extrabold text-left text-black dark:text-white drop-shadow-[0_4px_32px_rgba(60,60,60,0.18)] leading-[1.05]"
+            className="text-7xl sm:text-8xl md:text-8xl lg:text-9xl font-extrabold text-center md:text-left text-black dark:text-white drop-shadow-[0_4px_32px_rgba(60,60,60,0.18)] leading-[1.05]"
           >
             Kevin <br /> Cruz
             <br /> Lopez
@@ -68,7 +68,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.12, type: "tween" }}
-            className="block w-32 sm:w-48 h-2 rounded-full bg-gradient-to-r from-[#e30b5d] via-[#6366f1] to-[#0ea5e9] animate-gradient-move opacity-95 shadow-[0_0_32px_8px_rgba(227,11,93,0.20),0_0_40px_16px_rgba(99,102,241,0.15),0_0_48px_20px_rgba(14,165,233,0.10)] mb-2"
+            className="block w-32 sm:w-48 h-2 rounded-full bg-gradient-to-r from-[#e30b5d] via-[#6366f1] to-[#0ea5e9] animate-gradient-move opacity-95 shadow-[0_0_32px_8px_rgba(227,11,93,0.20),0_0_40px_16px_rgba(99,102,241,0.15),0_0_48px_20px_rgba(14,165,233,0.10)] mb-2 mx-auto md:mx-0"
           />
           {/* Modern Glassy Description Container */}
           <motion.div
@@ -77,7 +77,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.15, type: "tween" }}
             className="w-full max-w-xl py-6 px-8 bg-white/80 dark:bg-black/60 backdrop-blur-md rounded-2xl border border-white/30 dark:border-white/10 shadow-2xl shadow-gray-400/40 dark:shadow-none"
           >
-            <div className="flex flex-col gap-4 text-base sm:text-lg md:text-xl text-left text-gray-800 dark:text-gray-100 font-medium leading-relaxed">
+            <div className="flex flex-col gap-4 text-base sm:text-lg md:text-xl text-center md:text-left text-gray-800 dark:text-gray-100 font-medium leading-relaxed">
               <p>
                 I am a software engineer with a passion for building web applications.
               </p>
@@ -89,16 +89,16 @@ export default function Home() {
           </motion.div>
           {/* Animated Socials */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25, type: "tween" }}
-            className="relative z-10 flex flex-wrap gap-4 mt-8 w-full items-center"
+            transition={{ duration: 0.5, delay: 0, type: "tween" }}
+            className="relative z-10 flex flex-wrap gap-4 mt-0 w-full items-center justify-center md:justify-start"
           >
             <a
               href="https://www.linkedin.com/in/kcruz10/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+              className="flex items-center justify-center gap-2 px-6 h-14 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
             >
               <FaLinkedin className="text-2xl text-[#0077B5] group-hover:drop-shadow-[0_0_8px_rgba(0,119,181,0.5)]" />
               <span className="font-semibold text-gray-800 dark:text-white">LinkedIn</span>
@@ -107,7 +107,7 @@ export default function Home() {
               href="https://github.com/Kcruz28"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+              className="flex items-center justify-center gap-2 px-6 h-14 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
             >
               <FaGithub className="text-2xl text-gray-800 dark:text-white group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
               <span className="font-semibold text-gray-800 dark:text-white">GitHub</span>
@@ -252,7 +252,7 @@ export default function Home() {
               <div className="relative bg-white/60 dark:bg-black/40 backdrop-blur-xl p-8 rounded-2xl border border-white/20 dark:border-white/10 shadow-xl">
                 <div className="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-light">
                   <p>
-                    Hello! I'm <span className="font-semibold text-black dark:text-white">Kevin</span>, a passionate software engineer based in the United States.
+                    Hello! I&apos;m <span className="font-semibold text-black dark:text-white">Kevin</span>, a passionate software engineer based in the United States.
                     My journey in tech started with a curiosity for how things work, which quickly
                     evolved into a love for building software that solves real-world problems.
                   </p>
@@ -262,7 +262,7 @@ export default function Home() {
                     writing clean, maintainable code and creating intuitive user experiences.
                   </p>
                   <p>
-                    When I'm not coding, you can find me exploring new technologies, contributing
+                    When I&apos;m not coding, you can find me exploring new technologies, contributing
                     to open source, or enjoying a good cup of coffee while brainstorming my next project.
                   </p>
                 </div>

@@ -27,7 +27,7 @@ export default function Contact() {
     },
   ];
   return (
-    <div className="min-h-screen px-4 md:px-20 pb-20 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen px-4 md:px-20 pb-20 pt-24 font-[family-name:var(--font-geist-sans)]">
       <FloatingNav />
       <TitleCard
         title1="Get In"

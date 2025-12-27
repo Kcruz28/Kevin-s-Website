@@ -9,7 +9,7 @@ type TitleCardProps = {
 
 export function TitleCard({ title1, title2, description }: TitleCardProps) {
   return (
-    <div className="flex flex-col gap-6 mt-16">
+    <div className="flex flex-col gap-6 mt-0 md:mt-0">
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}

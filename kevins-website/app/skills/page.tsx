@@ -86,7 +86,7 @@ export default function Skills() {
   const activeSkillCategory = skillsByCategory[activeCategory];
 
   return (
-    <div className="min-h-screen px-4 md:px-20 pb-20 sm:p-0">
+    <div className="min-h-screen px-4 md:px-20 pb-20 pt-24 font-[family-name:var(--font-geist-sans)]">
       <FloatingNav />
       <TitleCard
         title1="My"
@@ -100,8 +100,8 @@ export default function Skills() {
             key={c.id}
             onClick={() => setActiveCategory(c.id)}
             className={`relative flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 font-medium overflow-hidden group ${activeCategory === c.id
-                ? "text-white shadow-[0_0_20px_rgba(227,11,93,0.3)] scale-105"
-                : "bg-white/80 dark:bg-white/5 text-gray-800 dark:text-gray-200 hover:bg-white dark:hover:bg-white/10 hover:scale-105 border border-black/5 dark:border-white/10 backdrop-blur-sm"
+              ? "text-white shadow-[0_0_20px_rgba(227,11,93,0.3)] scale-105"
+              : "bg-white/80 dark:bg-white/5 text-gray-800 dark:text-gray-200 hover:bg-white dark:hover:bg-white/10 hover:scale-105 border border-black/5 dark:border-white/10 backdrop-blur-sm"
               }`}
           >
             {activeCategory === c.id && (
