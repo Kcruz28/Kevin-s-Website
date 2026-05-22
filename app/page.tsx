@@ -48,7 +48,7 @@ const projects = [
       "A full-scale autonomous driving stack built for CS 588, implementing sensor fusion (Lidar/Vision), Bayesian state localization, and path control.",
     stack: ["C++", "Python", "ROS2", "PyTorch"],
     year: "2026",
-    image: "/cs588_vehicle.png",
+    image: "/autonomous_car.png",
     href: "https://github.com/Kcruz28/cs588_group14",
     glow: "#ff4d2e",
     category: "Systems & Robotics",
@@ -60,13 +60,42 @@ const projects = [
       "A high-performance C++ motion planning library implementing Probabilistic Roadmaps (PRMs), RRTs, and collision detection strategies.",
     stack: ["C++", "Python", "CMake"],
     year: "2026",
-    image: "/parasol_ppl.png",
+    image: "/cluttered_map-visualized.png",
     href: "https://github.com/Kcruz28/Parasol-PPL-2.0",
     glow: "#6d4cff",
     category: "Systems & Robotics",
   },
   {
     n: "05",
+    name: "Apache Log4j 2",
+    blurb:
+      "Contributed to the Apache Log4j 2 core logging module. Diagnosed and fixed flaky tests, resolved test state leakage, and replaced fixed delays with adaptive Awaitility polling.",
+    stack: ["Java", "Awaitility", "JUnit", "NonDex", "Debugging"],
+    year: "2024",
+    image: "/lab_placeholder.png",
+    href: "https://github.com/apache/logging-log4j2/pull/3956",
+    glow: "#ff4d2e",
+    category: "Open Source",
+    links: [
+      { label: "PR #3956 (Timeout Fix)", href: "https://github.com/apache/logging-log4j2/pull/3956" },
+      { label: "PR #3944 (Polling Delay)", href: "https://github.com/apache/logging-log4j2/pull/3944" },
+      { label: "PR #3945 (State Leakage)", href: "https://github.com/apache/logging-log4j2/pull/3945" },
+    ],
+  },
+  {
+    n: "06",
+    name: "Spring Cloud Gateway",
+    blurb:
+      "Contributed to the Spring Cloud Gateway project. Fixed a critical bytecode ordering dependency in the GatewayAutoConfiguration test suite discovered using NonDex.",
+    stack: ["Java", "Spring Boot", "JUnit", "NonDex", "Testing"],
+    year: "2024",
+    image: "/lab_placeholder.png",
+    href: "https://github.com/spring-cloud/spring-cloud-gateway/pull/3985",
+    glow: "#6d4cff",
+    category: "Open Source",
+  },
+  {
+    n: "07",
     name: "Kubernetes ML Inference (MP13)",
     blurb:
       "Containerized machine learning model endpoints deployed as scalable microservices orchestrated on a Kubernetes cluster.",
@@ -78,7 +107,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "06",
+    n: "08",
     name: "AutoML Pipeline (MP12)",
     blurb:
       "An automated machine learning pipeline executing data preprocessing, model selection, hyperparameter tuning, and registration.",
@@ -90,7 +119,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "07",
+    n: "09",
     name: "Spark GraphFrames & MLLib (MP11)",
     blurb:
       "Large-scale graph analytics (PageRank, Label Propagation) and predictive modeling using Spark GraphFrames and MLlib.",
@@ -102,7 +131,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "08",
+    n: "10",
     name: "Real-Time Analytics Dashboard (MP10)",
     blurb:
       "Interactive data visualization dashboard rendering time-series metrics over log files ingested from distributed systems.",
@@ -114,7 +143,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "09",
+    n: "11",
     name: "Flink & Kinesis Streaming (MP9)",
     blurb:
       "Real-time stateful stream processing and sliding window analytics over high-throughput live events using Apache Flink and AWS Kinesis.",
@@ -126,7 +155,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "10",
+    n: "12",
     name: "SparkSQL Analytics (MP8)",
     blurb:
       "Optimized query execution plans and distributed analytical processing over massive structured parquet datasets using SparkSQL.",
@@ -138,7 +167,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "11",
+    n: "13",
     name: "Spark MapReduce (MP7)",
     blurb:
       "Distributed text processing and batch analytical algorithms implemented from scratch on Apache Spark clusters.",
@@ -150,7 +179,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "12",
+    n: "14",
     name: "Kafka Message Broker (MP6)",
     blurb:
       "Event-driven streaming pipeline utilizing Apache Kafka for scalable message delivery, consumer groups, and partition management.",
@@ -162,7 +191,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "13",
+    n: "15",
     name: "Aurora & ElastiCache Caching (MP5)",
     blurb:
       "Performance optimization for cloud databases through write-through and read-through caching using Redis and Amazon Aurora.",
@@ -174,7 +203,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "14",
+    n: "16",
     name: "Cloud-Native Full Stack App (MP4)",
     blurb:
       "A secure, containerized web application deployed on AWS managing persistent relational state, user sessions, and credentials.",
@@ -186,7 +215,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "15",
+    n: "17",
     name: "AWS Lex & Lambda Bot (MP3)",
     blurb:
       "Serverless backend integrating AWS Lex NLP capabilities with Lambda handlers to execute complex database query workflows.",
@@ -198,7 +227,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "16",
+    n: "18",
     name: "Auto Scaling & Load Balancing (MP2)",
     blurb:
       "Designing fault-tolerant cloud configurations using AWS Auto Scaling Groups (ASG) and Elastic Load Balancers (ELB).",
@@ -210,7 +239,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "17",
+    n: "19",
     name: "EC2 & S3 Infrastructure (MP1)",
     blurb:
       "Provisioning programmatic virtual machines and secure object storage assets using AWS EC2, S3, and IAM policy definitions.",
@@ -222,7 +251,7 @@ const projects = [
     category: "Cloud Systems",
   },
   {
-    n: "18",
+    n: "20",
     name: "AI Loteria",
     blurb:
       "A bilingual reimagining of the classic Mexican card game, with an adversarial agent that scales difficulty in real time.",
@@ -234,7 +263,7 @@ const projects = [
     category: "AI & Agents",
   },
   {
-    n: "19",
+    n: "21",
     name: "NetWhiz",
     blurb:
       "Interactive learning platform that turns networking fundamentals into hands-on labs with live progress tracking.",
@@ -246,7 +275,7 @@ const projects = [
     category: "Full-Stack & Web",
   },
   {
-    n: "20",
+    n: "22",
     name: "SHPE Tech",
     blurb:
       "Official site for BU's Society of Hispanic Professional Engineers chapter, designed and shipped by the tech team.",
@@ -258,7 +287,7 @@ const projects = [
     category: "Full-Stack & Web",
   },
   {
-    n: "21",
+    n: "23",
     name: "Ticket Masterer",
     blurb:
       "Real-time price comparison and recommendation engine for live events, ingesting from multiple marketplaces.",
@@ -591,15 +620,16 @@ function ProjectCard({
   project,
   index,
 }: {
-  project: (typeof projects)[number];
+  project: (typeof projects)[number] & {
+    links?: { label: string; href: string }[];
+  };
   index: number;
 }) {
+  const hasLinks = !!project.links && project.links.length > 0;
+
   return (
-    <motion.a
+    <motion.div
       layout
-      href={project.href}
-      target="_blank"
-      rel="noopener noreferrer"
       data-hover
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -607,6 +637,16 @@ function ProjectCard({
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="group relative block overflow-hidden rounded-xl border border-line bg-ink/70 backdrop-blur"
     >
+      {/* Whole-card link overlay for standard projects */}
+      {!hasLinks && (
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute inset-0 z-30"
+        />
+      )}
+
       {/* Image */}
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
@@ -629,7 +669,7 @@ function ProjectCard({
         />
 
         {/* Top labels */}
-        <div className="absolute inset-x-3 top-3 flex items-start justify-between font-mono text-[10px] tracking-[0.2em]">
+        <div className="absolute inset-x-3 top-3 flex items-start justify-between font-mono text-[10px] tracking-[0.2em] z-30">
           <span className="rounded-sm bg-void/60 px-1.5 py-0.5 text-acid backdrop-blur-sm">
             {project.n}
           </span>
@@ -639,51 +679,113 @@ function ProjectCard({
         </div>
 
         {/* Bottom-anchored title block */}
-        <div className="absolute inset-x-0 bottom-0 p-4">
+        <div className="absolute inset-x-0 bottom-0 p-4 z-10 transition-opacity duration-400 md:group-hover:opacity-0">
           <div className="flex items-baseline justify-between gap-2">
             <h3 className="text-[17px] font-semibold tracking-tight text-bone">
-              {project.name}
+              {hasLinks ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-acid transition-colors"
+                >
+                  {project.name} <span className="font-mono text-xs text-acid">↗</span>
+                </a>
+              ) : (
+                project.name
+              )}
             </h3>
-            <span className="font-mono text-acid transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-              ↗
-            </span>
-          </div>
-          <div className="mt-1.5 flex flex-wrap gap-1">
-            {project.stack.slice(0, 3).map((s) => (
-              <span
-                key={s}
-                className="rounded-sm border border-bone/15 bg-void/40 px-1.5 py-0.5 font-mono text-[9.5px] uppercase tracking-wider text-bone/70 backdrop-blur-sm"
-              >
-                {s}
+            {!hasLinks && (
+              <span className="font-mono text-acid transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                ↗
               </span>
-            ))}
+            )}
           </div>
+          {hasLinks ? (
+            <div className="mt-2.5 flex flex-wrap gap-1.5 md:hidden">
+              {project.links?.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md border border-line bg-void/80 px-2 py-1 font-mono text-[10px] text-bone/90 hover:text-acid transition-colors"
+                >
+                  {link.label.split(" (")[0]} ↗
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-1.5 flex flex-wrap gap-1">
+              {project.stack.slice(0, 3).map((s) => (
+                <span
+                  key={s}
+                  className="rounded-sm border border-bone/15 bg-void/40 px-1.5 py-0.5 font-mono text-[9.5px] uppercase tracking-wider text-bone/70 backdrop-blur-sm"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Hover-revealed blurb (desktop only) */}
         <div
-          className="pointer-events-none absolute inset-0 hidden flex-col justify-end bg-gradient-to-t from-ink via-ink/85 to-ink/30 p-5 opacity-0 transition-opacity duration-400 group-hover:opacity-100 md:flex"
+          className={`absolute inset-0 hidden flex-col justify-end bg-gradient-to-t from-ink via-ink/85 to-ink/30 p-5 opacity-0 transition-opacity duration-400 group-hover:opacity-100 md:flex z-20 ${
+            hasLinks ? "pointer-events-auto" : "pointer-events-none"
+          }`}
         >
           <div className="font-mono text-[10px] tracking-[0.22em] text-acid">
             {project.n} / {project.year}
           </div>
-          <h3 className="mt-1 text-xl font-semibold tracking-tight">{project.name}</h3>
+          <h3 className="mt-1 text-xl font-semibold tracking-tight text-bone">
+            {hasLinks ? (
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-acid transition-colors"
+              >
+                {project.name} <span className="font-mono text-xs text-acid">↗</span>
+              </a>
+            ) : (
+              project.name
+            )}
+          </h3>
           <p className="mt-2 text-[13px] leading-relaxed text-bone/75">
             {project.blurb}
           </p>
-          <div className="mt-3 flex flex-wrap gap-1.5">
-            {project.stack.map((s) => (
-              <span
-                key={s}
-                className="rounded-sm border border-line bg-cell/60 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-bone/80"
-              >
-                {s}
-              </span>
-            ))}
-          </div>
+
+          {hasLinks ? (
+            <div className="mt-3.5 space-y-1.5">
+              {project.links?.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between rounded-md border border-line bg-cell/40 px-3 py-1.5 font-mono text-[11px] text-bone transition-colors hover:border-acid hover:text-acid"
+                >
+                  <span>{link.label}</span>
+                  <span className="text-acid">↗</span>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {project.stack.map((s) => (
+                <span
+                  key={s}
+                  className="rounded-sm border border-line bg-cell/60 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-bone/80"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </div>
-    </motion.a>
+    </motion.div>
   );
 }
 
@@ -722,7 +824,7 @@ function SectionHead({
 function Work() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const categories = ["All", "Systems & Robotics", "AI & Agents", "Full-Stack & Web", "Cloud Systems"];
+  const categories = ["All", "Systems & Robotics", "AI & Agents", "Full-Stack & Web", "Cloud Systems", "Open Source"];
 
   const filteredProjects = activeCategory === "All"
     ? projects
