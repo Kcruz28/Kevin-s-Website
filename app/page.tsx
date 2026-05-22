@@ -36,7 +36,7 @@ const projects = [
       "A simulation and control environment for a physical robotic arm manipulator, training deep reinforcement learning agents for precision tasks.",
     stack: ["Python", "ROS2", "PyTorch", "Conda"],
     year: "2026",
-    image: "/robotic_arm.png",
+    image: "/yellow_arm.png",
     href: "https://github.com/Kcruz28/robotic-arm",
     glow: "#6d4cff",
     category: "Systems & Robotics",
@@ -273,10 +273,10 @@ const projects = [
 
 const stack = {
   Languages: ["TypeScript", "Python", "C / C++", "Java"],
-  Web:       ["React", "Next.js", "Node.js", "Express", "GraphQL"],
-  Systems:   ["PyTorch", "Apache Spark", "Apache Kafka", "Apache Flink"],
+  Web: ["React", "Next.js", "Node.js", "Express", "GraphQL"],
+  Systems: ["PyTorch", "Apache Spark", "Apache Kafka", "Apache Flink"],
   "Cloud & Infra": ["AWS", "Kubernetes", "Docker", "GCP", "Terraform", "Git"],
-  Robotics:  ["ROS2", "Autonomous Vehicles", "Motion Planning", "Sensor Fusion", "Bayesian Filtering"],
+  Robotics: ["ROS2", "Autonomous Vehicles", "Motion Planning", "Sensor Fusion", "Bayesian Filtering"],
 };
 
 const tickerItems = [
@@ -400,9 +400,8 @@ function Nav() {
 
       {/* Mobile menu sheet */}
       <div
-        className={`fixed inset-0 z-40 transition-opacity duration-300 lg:hidden ${
-          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-        }`}
+        className={`fixed inset-0 z-40 transition-opacity duration-300 lg:hidden ${open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+          }`}
       >
         <div className="absolute inset-0 bg-void/90 backdrop-blur-xl" onClick={() => setOpen(false)} />
         <div className="absolute inset-x-5 top-20 rounded-2xl border border-line bg-ink/95 p-6">
@@ -751,9 +750,8 @@ function Work() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`relative px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-300 ${
-                  active ? "text-void font-semibold" : "text-fog hover:text-bone"
-                }`}
+                className={`relative px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-300 ${active ? "text-void font-semibold" : "text-fog hover:text-bone"
+                  }`}
                 style={{ WebkitTapHighlightColor: "transparent" }}
               >
                 {active && (
@@ -770,7 +768,7 @@ function Work() {
         </div>
 
         {/* Projects Grid */}
-        <motion.div 
+        <motion.div
           layout
           className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5"
         >
@@ -924,10 +922,10 @@ function About() {
 
             <div className="mt-12 grid grid-cols-2 gap-6 border-t border-line pt-10 md:grid-cols-4">
               {[
-                { k: "Based",    v: "Chicago, IL" },
+                { k: "Based", v: "Chicago, IL" },
                 { k: "Building", v: "3+ years" },
-                { k: "Affil.",   v: "SHPE · BU" },
-                { k: "Status",   v: "Open 2026" },
+                { k: "Affil.", v: "SHPE · BU" },
+                { k: "Status", v: "Open 2026" },
               ].map((d) => (
                 <div key={d.k}>
                   <div className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-fog">
@@ -1005,8 +1003,8 @@ function Contact() {
             <ul className="mt-5 space-y-3">
               {[
                 { l: "LinkedIn", h: "https://www.linkedin.com/in/kcruz10/" },
-                { l: "GitHub",   h: "https://github.com/Kcruz28" },
-                { l: "Email",    h: "mailto:kcruzlopez10@gmail.com" },
+                { l: "GitHub", h: "https://github.com/Kcruz28" },
+                { l: "Email", h: "mailto:kcruzlopez10@gmail.com" },
               ].map((s) => (
                 <li key={s.l}>
                   <a
