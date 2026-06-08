@@ -142,7 +142,7 @@ export function Nav() {
 }
 
 /* ─── Hero ────────────────────────────────────────────────────────────── */
-export function Hero({ scrollRef }: { scrollRef: React.MutableRefObject<number> }) {
+export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const titleY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
@@ -204,7 +204,7 @@ export function Ticker() {
 }
 
 /* ─── Project Card ────────────────────────────────────────────────────── */
-export function ProjectCard({ project, index }: { project: Project; index: number }) {
+export function ProjectCard({ project }: { project: Project }) {
   const hasLinks = !!project.links && project.links.length > 0;
 
   return (
@@ -328,9 +328,9 @@ export function Work() {
 
         <motion.div layout className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
           <AnimatePresence mode="popLayout">
-            {displayedProjects.map((p, i) => (
+            {displayedProjects.map((p) => (
               <motion.div key={p.n} layout initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.4 }}>
-                <ProjectCard project={p} index={i} />
+                <ProjectCard project={p} />
               </motion.div>
             ))}
           </AnimatePresence>

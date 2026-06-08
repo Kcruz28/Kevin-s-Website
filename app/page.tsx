@@ -44,7 +44,7 @@ export default function Home() {
 
       <main className="relative z-10">
         <Nav />
-        <Hero scrollRef={scrollRef} />
+        <Hero />
         <Ticker />
         <Work />
         <Stack />
