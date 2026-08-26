@@ -203,6 +203,42 @@ export function Ticker() {
   );
 }
 
+/* ─── Typographic Card Art ────────────────────────────────────────────── */
+function CardArt({ project }: { project: Project }) {
+  return (
+    <div className="absolute inset-0 bg-[#0a0b0e]">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(232,230,225,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(232,230,225,0.045) 1px, transparent 1px)",
+          backgroundSize: "26px 26px",
+        }}
+      />
+      <div
+        className="absolute -right-10 -top-14 h-56 w-56 rounded-full opacity-25 blur-[80px]"
+        style={{ background: project.glow }}
+      />
+      <div
+        aria-hidden
+        className="absolute -right-2 top-1/2 -translate-y-1/2 select-none font-mono font-bold leading-none tracking-tighter"
+        style={{ fontSize: "8.5rem", color: "transparent", WebkitTextStroke: `1px ${project.glow}30` }}
+      >
+        {project.n}
+      </div>
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 px-5">
+        <div className="truncate font-mono text-[11px] text-bone/80">
+          <span className="text-acid">$</span> <span className="text-fog">{project.cmd}</span>
+          <span className="caret" />
+        </div>
+        <div className="mt-2 font-mono text-[9.5px] uppercase tracking-[0.22em] text-fog">
+          kevin.dev / {project.category}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Project Card ────────────────────────────────────────────────────── */
 export function ProjectCard({ project }: { project: Project }) {
   const hasLinks = !!project.links && project.links.length > 0;
@@ -220,7 +256,13 @@ export function ProjectCard({ project }: { project: Project }) {
       <a href={project.href} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10" />
 
       <div className="relative aspect-[4/3] overflow-hidden pointer-events-none">
-        <Image src={project.image} alt={project.name} fill className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.06]" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+        {project.image ? (
+          <Image src={project.image} alt={project.name} fill className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.06]" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+        ) : (
+          <div className="absolute inset-0 transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]">
+            <CardArt project={project} />
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/40 to-transparent" />
         <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: `radial-gradient(circle at 50% 100%, ${project.glow}33, transparent 70%)` }} />
         
