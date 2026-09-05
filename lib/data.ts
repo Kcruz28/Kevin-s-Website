@@ -10,6 +10,8 @@ export interface Project {
   stack: string[];
   year: string;
   image?: string;
+  video?: string;
+  poster?: string;
   cmd?: string;
   href: string;
   glow: string;
@@ -310,6 +312,81 @@ export const projects: Project[] = [
     href: "https://github.com/ajay-del-bot/CS411_CRUDApp",
     glow: "#ff4d2e",
     category: "Full-Stack & Web",
+  },
+  {
+    n: "25",
+    name: "DCC Harness",
+    blurb:
+      "A database-backed browser automation harness that programmatically drives web and mobile app sessions to capture execution traces automatically, replacing manual, per-site trace collection with a repeatable, queryable pipeline.",
+    stack: ["Python", "Playwright", "PostgreSQL", "Browser Automation"],
+    year: "2026",
+    video: "/videos/dcc_harness_demo.mp4",
+    poster: "/videos/dcc_harness_demo-poster.jpg",
+    href: "https://github.com/Kcruz28",
+    glow: "#d4ff3a",
+    category: "AI & Agents",
+  },
+  {
+    n: "26",
+    name: "UIUC Siebel AI Systems Research",
+    blurb:
+      "Retrieval-augmented generation systems built on AWS Bedrock for the Siebel School of Computing and Data Science, redesigning retrieval with tree-based chunking to cut latency 43% (14s to 8s) and automating agentic workflow evaluation across 40+ websites via a custom browser harness.",
+    stack: ["AWS Bedrock", "RAG", "AWS Lambda", "API Gateway", "TypeScript"],
+    year: "2026",
+    video: "/videos/rag_figma_demo.mp4",
+    poster: "/videos/rag_figma_demo-poster.jpg",
+    href: "https://github.com/Kcruz28",
+    glow: "#6d4cff",
+    category: "AI & Agents",
+  },
+  {
+    n: "27",
+    name: "LiDAR-Camera Calibration",
+    blurb:
+      "Re-derives camera projection from first principles on raw KITTI driving logs, implementing intrinsic/extrinsic calibration and a target-free LiDAR-camera extrinsic routine via Open3D ICP, with all modalities streamed into a live Rerun SDK dashboard for calibration validation.",
+    stack: ["Python", "Open3D", "ICP", "Rerun SDK", "KITTI"],
+    year: "2026",
+    video: "/videos/cs588_mp0.mp4",
+    poster: "/videos/cs588_mp0-poster.jpg",
+    href: "https://github.com/Kcruz28/cs588_group14",
+    glow: "#6d4cff",
+    category: "Systems & Robotics",
+  },
+  {
+    n: "28",
+    name: "Graph-SLAM",
+    blurb:
+      "Implements SLAM from scratch: an ICP-based LiDAR odometry front end chained across a driving sequence, feeding a hand-built Graph-SLAM back end that solves a sparse nonlinear least-squares system via Gauss-Newton optimization to correct accumulated drift.",
+    stack: ["Python", "Open3D", "ICP", "Graph-SLAM", "Gauss-Newton"],
+    year: "2026",
+    cmd: "python graph_slam.py --optimize gauss-newton",
+    href: "https://github.com/Kcruz28/cs588_group14",
+    glow: "#ff4d2e",
+    category: "Systems & Robotics",
+  },
+  {
+    n: "29",
+    name: "LiDAR 3D Object Detection",
+    blurb:
+      "A CenterPoint-style 3D object detector for single-sweep LiDAR: a ResNet-style bird's-eye-view backbone with five dense prediction heads, trained with a custom CenterNet focal loss and masked regression losses, evaluated with IoU-based precision/recall on KITTI.",
+    stack: ["PyTorch", "CenterPoint", "LiDAR", "Computer Vision", "KITTI"],
+    year: "2026",
+    cmd: "python train.py --model centerpoint --dataset kitti",
+    href: "https://github.com/Kcruz28/cs588_group14",
+    glow: "#6d4cff",
+    category: "Systems & Robotics",
+  },
+  {
+    n: "30",
+    name: "Motion Planning in Waymax",
+    blurb:
+      "A closed-loop motion planning stack in Waymax: a Frenet-frame trajectory sampler generating 504 candidate trajectories per cycle, ranked by a five-term cost evaluator, and tracked via a Pure Pursuit controller validated against real Waymo traffic scenarios.",
+    stack: ["Python", "Waymax", "Motion Planning", "Frenet Frame", "Pure Pursuit"],
+    year: "2026",
+    cmd: "python plan.py --sim waymax --scenario waymo_open",
+    href: "https://github.com/Kcruz28/cs588_group14",
+    glow: "#ff4d2e",
+    category: "Systems & Robotics",
   },
 ];
 
