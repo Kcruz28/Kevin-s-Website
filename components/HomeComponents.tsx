@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import {
   motion,
@@ -10,7 +11,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Play, X } from "lucide-react";
 import { projects, stack, tickerItems, Project } from "@/lib/data";
 
 /* ─── Cursor halo ─────────────────────────────────────────────────────── */
@@ -242,8 +243,30 @@ function CardArt({ project }: { project: Project }) {
 /* ─── Project Card ────────────────────────────────────────────────────── */
 export function ProjectCard({ project }: { project: Project }) {
   const hasLinks = !!project.links && project.links.length > 0;
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  const playVideo = () => { videoRef.current?.play().catch(() => {}); };
+  const pauseVideo = () => {
+    const v = videoRef.current;
+    if (v && !v.paused) v.pause();
+  };
+  const openLightbox = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    pauseVideo();
+    setLightboxOpen(true);
+  };
+
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightboxOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightboxOpen]);
 
   return (
+    <>
     <motion.div
       layout
       data-hover
@@ -252,11 +275,26 @@ export function ProjectCard({ project }: { project: Project }) {
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="group relative block overflow-hidden rounded-xl border border-line bg-ink/70 backdrop-blur"
+      onMouseEnter={playVideo}
+      onMouseLeave={pauseVideo}
+      onFocus={playVideo}
+      onBlur={pauseVideo}
     >
       <a href={project.href} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10" />
 
       <div className="relative aspect-[4/3] overflow-hidden pointer-events-none">
-        {project.image ? (
+        {project.video ? (
+          <video
+            ref={videoRef}
+            src={project.video}
+            poster={project.poster}
+            muted
+            loop
+            playsInline
+            preload="none"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.06]"
+          />
+        ) : project.image ? (
           <Image src={project.image} alt={project.name} fill className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.06]" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
         ) : (
           <div className="absolute inset-0 transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]">
@@ -265,7 +303,20 @@ export function ProjectCard({ project }: { project: Project }) {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/40 to-transparent" />
         <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: `radial-gradient(circle at 50% 100%, ${project.glow}33, transparent 70%)` }} />
-        
+
+        {project.video && (
+          <button
+            type="button"
+            aria-label={`Watch ${project.name} demo`}
+            onClick={openLightbox}
+            className="pointer-events-auto absolute inset-0 z-[25] flex items-center justify-center"
+          >
+            <span className="flex h-14 w-14 items-center justify-center rounded-full border border-line bg-void/70 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-acid group-hover:bg-void/85">
+              <Play size={20} className="ml-0.5 text-bone transition-colors group-hover:text-acid" fill="currentColor" />
+            </span>
+          </button>
+        )}
+
         <div className="absolute inset-x-3 top-3 flex items-start justify-between font-mono text-[10px] tracking-[0.2em] z-20">
           <span className="rounded-sm bg-void/60 px-1.5 py-0.5 text-acid backdrop-blur-sm">{project.n}</span>
           <span className="rounded-sm bg-void/60 px-1.5 py-0.5 text-fog backdrop-blur-sm">{project.year}</span>
@@ -285,7 +336,12 @@ export function ProjectCard({ project }: { project: Project }) {
               ))}
             </div>
           ) : (
-            <div className="mt-1.5 flex flex-wrap gap-1">
+            <div className="mt-1.5 flex flex-wrap items-center gap-1">
+              {project.video && (
+                <a href={project.href} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="relative z-40 rounded-sm border border-acid/40 bg-void/60 px-1.5 py-0.5 font-mono text-[9.5px] uppercase tracking-wider text-acid backdrop-blur-sm">
+                  Repo ↗
+                </a>
+              )}
               {project.stack.slice(0, 3).map((s) => (
                 <span key={s} className="rounded-sm border border-bone/15 bg-void/40 px-1.5 py-0.5 font-mono text-[9.5px] uppercase tracking-wider text-bone/70 backdrop-blur-sm">{s}</span>
               ))}
@@ -307,7 +363,12 @@ export function ProjectCard({ project }: { project: Project }) {
               ))}
             </div>
           ) : (
-            <div className="mt-3 flex flex-wrap gap-1.5">
+            <div className="mt-3 flex flex-wrap items-center gap-1.5 pointer-events-auto">
+              {project.video && (
+                <a href={project.href} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="relative z-40 rounded-sm border border-acid/50 bg-cell/60 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-acid transition-colors hover:border-acid">
+                  Repo ↗
+                </a>
+              )}
               {project.stack.map((s) => (
                 <span key={s} className="rounded-sm border border-line bg-cell/60 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-bone/80">{s}</span>
               ))}
@@ -316,6 +377,36 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
     </motion.div>
+    {project.video && lightboxOpen && typeof document !== "undefined" && createPortal(
+      <div
+        className="fixed inset-0 z-[200] flex items-center justify-center bg-void/90 p-4 backdrop-blur-md"
+        onClick={() => setLightboxOpen(false)}
+      >
+        <button
+          type="button"
+          aria-label="Close demo"
+          onClick={() => setLightboxOpen(false)}
+          style={{ top: "max(1rem, env(safe-area-inset-top))", right: "max(1rem, env(safe-area-inset-right))" }}
+          className="absolute p-3 text-bone/70 transition-colors hover:text-acid"
+        >
+          <X size={24} />
+        </button>
+        <div className="w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
+          <video
+            src={project.video}
+            poster={project.poster}
+            controls
+            autoPlay
+            muted
+            playsInline
+            className="max-h-[80vh] w-full rounded-lg border border-line bg-black"
+          />
+          <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.2em] text-fog">{project.name}, demo</p>
+        </div>
+      </div>,
+      document.body
+    )}
+    </>
   );
 }
 
